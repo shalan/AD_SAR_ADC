@@ -1,0 +1,16 @@
+********************************************************************************
+* Digital 24V flyback converter with variable output
+********************************************************************************
+* This flyback has a digital controller than selects sets the dutycycle to
+* vary the output voltage.
+********************************************************************************
+* T   R  D  D
+* i   S  C  C
+* m   T  Y  Y
+* e   _  C  C
+*     N  1  0
+0.0   0s 0s 0s
+2u    1s 0s 0s
+500u  1s 0s 1s
+1m    1s 1s 0s
+1.5m  1s 1s 1s

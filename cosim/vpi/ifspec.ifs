@@ -1,0 +1,120 @@
+/*******************************************************************************
+**        IFS FILE (c) 2015, SiliconReef
+********************************************************************************
+**
+**        ID:      $Id: ifspec.ifs,v 1.7 2016/01/08 19:58:52 gsr Exp gsr $
+**        File:    d_hdl/ifspec.ifs
+**        Author:  Glenn Ramalho
+**        Project: ADMS
+**
+********************************************************************************
+**
+**        Description: Interface Specification file for the D_HDL Xspice model
+**
+*******************************************************************************/
+
+NAME_TABLE:
+
+C_Function_Name:       cm_d_hdl
+Spice_Model_Name:      d_hdl
+Description:           "digital Xspice to HDL bridge"
+
+PORT_TABLE:
+
+Port_Name:           tohdl		tongspice	       	sampclk
+Description:         "To HDL Bus"	"To NGSPICE Bus"	"Sampling Clock"
+Direction:           in			out	        	in
+Default_Type:        d			d	        	d
+Allowed_Types:       [d]		[d]	        	[d]
+Vector:              yes		yes	        	no
+Vector_Bounds:       [- 255]		[- 255]         	-
+Null_Allowed:        yes		yes	        	yes
+
+PARAMETER_TABLE:
+
+Parameter_Name:     pipe_name
+Description:        "AF_UNIX Pipe to HDL simulator"
+Data_Type:          string 
+Default_Value:      "simulator_pipe"
+Limits:             -
+Vector:             no
+Vector_Bounds:      -
+Null_Allowed:       no
+
+PARAMETER_TABLE:
+
+Parameter_Name:     tohdl_load
+Description:        "toHDL pin loading capacitance (F)"  
+Data_Type:          real 
+Default_Value:      1.0e-12                       
+Limits:             -
+Vector:             no                              
+Vector_Bounds:      -
+Null_Allowed:       no
+
+PARAMETER_TABLE:
+
+Parameter_Name:     sampclk_load
+Description:        "Sampling Clock pin loading capacitance (F)"  
+Data_Type:          real
+Default_Value:      1.0e-12
+Limits:             -
+Vector:             no
+Vector_Bounds:      -
+Null_Allowed:       no
+
+PARAMETER_TABLE:
+
+Parameter_Name:     rise_delay
+Description:        "to NGSPICE rise delay"  
+Data_Type:          real
+Default_Value:      1.0e-9
+Limits:             [1e-12 -]
+Vector:             no
+Vector_Bounds:      -
+Null_Allowed:       yes
+
+PARAMETER_TABLE:
+
+Parameter_Name:     fall_delay
+Description:        "to NGSPICE fall delay"  
+Data_Type:          real
+Default_Value:      1.0e-9
+Limits:             [1e-12 -]
+Vector:             no
+Vector_Bounds:      -
+Null_Allowed:       yes
+
+PARAMETER_TABLE:
+
+Parameter_Name:     debug
+Description:        "Print Debug Data"  
+Data_Type:          boolean
+Default_Value:      FALSE
+Limits:             -
+Vector:             no
+Vector_Bounds:      -
+Null_Allowed:       yes
+
+PARAMETER_TABLE:
+
+Parameter_Name:     ic
+Description:        "Initial Conditions"  
+Data_Type:          int
+Default_Value:      -1
+Limits:             [-1 1]
+Vector:             no
+Vector_Bounds:      -
+Null_Allowed:       yes
+
+STATIC_VAR_TABLE:
+
+Static_Var_Name:    commchannel
+Description:        "local static data"
+Data_Type:          pointer
+
+STATIC_VAR_TABLE:
+
+Static_Var_Name:    direction
+Description:        "toggle direction"
+Data_Type:          int

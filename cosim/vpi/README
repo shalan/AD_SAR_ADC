@@ -1,0 +1,192 @@
+D_HDL
+
+Combining a high-level digital simulation environment like Verilog or SystemC
+can help us by providing either a mixed simulation environment. This allows us
+to run the digital blocks as HDL, so they become implementation independent and
+also run at much higher speeds. This can help run fast complex digital
+simulations with analog components, without having to replace the analog parts
+with digital functional models. We can also use this approach to create a
+complex testbench for analog circuits, where a high-level language can perform
+multiple transient tests in sequence, check results, and report failures.
+Usually though, only very expensive commercial simulators provide this feature.
+This block attempts to create a free connection between simulators which can be
+expanded later to support multiple languages and simulators.
+
+*** The Concept
+
+In a mixed simulation environment, each simulator engine will take a part of
+the circuit. Then they need to simulate their parts but also watch for inputs
+from the other simulator (or simulators). The ideal way would be:
+* Each simulator starts by analysing and finding out how much they can advance
+   without changing the I/Os going accross domains.
+* Then they need to communicate and exchange the next interrupt time.
+* All simulators simulate up to that point
+* Then the driver can tell the others the new value for the affected signals
+* Each simulator then reevaluates how far it can simulate until the next
+   communication between simulators occurs.
+
+Unfortunately simulating in adance and backtracking is not too simple. It could
+be done by saving checkpoints and then going back but this can add significant
+overhead. Therefore D_HDL tries to limit the possible scope of activities.
+
+D_HDL defines then three types of connections:
+* COMBINATORIAL: combinatorial with no timing information
+    In this case NGSPICE is the master and the only one with timing information.
+    When some event occurs on a line going from NGSPICE to the other simulator
+    it wakes up, takes in the inputs, calculates the result, and returns it
+    back to NGSPICE. This then can only work with simple HDL simulators that
+    are performing perhaps math operations.
+* SYNCHRONOUS: communication only occurs at a clock edge.
+    Sounds quite limited but it is actually useful. Being the HDL side will
+    usually be synchronous we can assume that the HDL will only drive and
+    sample on the clock. This then gives a synchronization point. The
+    simulators know they can ignore anything not at the clock.
+    - The simulators are stopped at some time
+    - All simulators advance one clock tick.
+    - All somulators negociate any changes.
+
+    The weakness here is complexities when multiple clocks come in. Also we
+    wind up with a lot of interruptions where nothing changes. Also it is
+    limited when the communication is not so clean. Can also cause a lot of
+    unecessary interruptions as on most clock ticks there should not be anything
+    to communicate.
+
+* ASYNCRHONOUS: this one was just planned but not implemented.
+    Digital simulators usually have some kind of event queue; at any time step
+    they first calculate what events they expect to happen in the future and
+    add them to the event queue. Then they increment the time counter up to
+    that point, evaluate the time step and repeat the process. We then could use
+    that in the simulator calculation.
+    - The simulators are stopped at some time.
+    - The HDL simulators all tell NGSPICE when the next event is supposed to
+       happen.
+    - D_HDL then will allow NGSPICE to either simulate to that time or until
+       it changes the inputs to one of the other simulators.
+    - Then the other simulators advance up to the time D_HDL told them to, and 
+       NGSPICE will advance up to the time they set up and any signal changes
+       are communicated.
+    - The simulators all then tell NGSPICE the next event.
+
+    This style is the closest to our ideal scenario but it can cause a lot of
+    unecessary interruptions. It would be nice if the other simulator could
+    predict when it is going to have an event which will affect the other
+    simulator. This style will wind up attempting a communication after any
+    activity in any simulator. So it is a bit more flexible than the
+    synchronous approach as there is no need for a sampling clock, but it might
+    generate a lot of delays to the NGSPICE simulator for constantly having to
+    recheck.
+
+    This one wound up not being implemented as VPI 2.0 does not have a function
+    to report when the next event will occur. This can be worked around by using
+    a VPI 1.1 task, but it violates the VPI format so this has been avoided.
+    Perhaps a better method can be worked out.
+
+    will not tell us when another event occurs
+
+*** How it works
+
+Currently the task is to instantiate the D_HDL block in both NGSPICE and the
+HDL simulator. Then the digital simulator is invoked. It will build a UNIX
+socket and start NGSPICE.
+
+////////// VERILOG SIDE
+initial
+begin
+   $d_hdl_sync("simulator_pipe",
+      "ngspice -b -r flyback_autotest.raw flyback_autotest.sp",
+      d_osc, adc, d_clk);
+end
+///////////////////////
+
+////////// NGSPICE SIDE
+.MODEL dm_hdl d_hdl(rise_delay=10n fall_delay=10n IC=0 DEBUG=0)
+Ahdl [d_adc5 d_adc4 d_adc3 d_adc2 d_adc1 d_adc0] [d_osc] D_CLK dm_hdl
+///////////////////////
+
+So in the example above, the verilog simulator will create a pipe called
+"simulator_pipe" and then run ngspice with the specified arguments. The
+channel then will be opened and the two simulators will communicate. First
+they will exchange information like initial conditions and options. Next
+they will start simulating. At each simulation step they will transfer
+information, depending on what style of simulation was picked.
+
+In the Verilog excerpt above, note that the communication is done via the busses
+"d_osc", "adc" and "d_clock". The first bus is going to the analog side,
+the second one is going to the HDL side and the third, if present, is the clock
+signal. You see the same thing on the NGSPCIE excerpt. The Ahdl component has
+one bus with the signals going to the HDL side (d_adc), one bus with the signals
+comming from the HDL (d_osc) and the clock.
+
+Included in the examples directory then are two examples:
+* flyback_digital
+    This is a simple flyback converter, where the oscillator control is digital.
+    The analog side then sends to the digital side a bus with a code which
+    represents the desired settings. This could be comming from external
+    switches or some other kind of user input, currently is a d_source XSPICE
+    component. The digital block then reads the currently selected code,
+    decides what should be the duty cycle and drives the flyback oscillator
+    accordingly.
+* flyback_autotest
+    This one attempts to create a more sofisticated testbench. It has a regular
+    testbook flyback all implemented in NGSPICE. Then the digital side has just
+    a testbench. There is no real "clock", instead synchronization is done via
+    a sampling signal, like a oscilloscope trigger. The digital side then sets
+    up the inputs to the flyback, waits some time and checks the results. Then
+    it adjusts some settings, waits some time and checks the results, and so
+    on until the test is done.
+
+The examples/d_hdl directory has both of them together with a script for running
+with either Ikarus Verilog (free pure verilog 2005 simulator with VPI-2.0
+support) and ModelSim/SE (free SystemVerilog simulator, reduced version of
+Mentor Graphics digital simulator, available from the Altera Website after a
+free registration). Unfortunately the ModelSim version has some problem that
+makes the simulator die with a traceback when it closes the channel. To
+view the waveforms there are several options.
+
+For the digital side of the waves:
+ - gtkwave: free VCD waveform viewer, format supported by just about every
+    digital simulator out there, including Ikarus and ModelSim.
+ - ModelSim: comes with a waveform viewer, which supports VCD or its own WLF
+    format.
+For the analog side of the waves:
+ - gaw: free SPICE analog waveform viewer.
+ - ngspice: also comes with a simple waveform viewer. Just load the files and
+    plot them.
+
+*** Communication Channel
+
+It is prefered to the channel to be as quick as possible. It could have been
+done in a binary format to speed up things, but for now it has been mantained
+in text.
+
+Excerpt of communication
+TU=10
+#0 111001101
+#10 001110101
+#20 111010000
+...
+
+The simulators each then begin informing the others their time unit. This should
+be the smallest number it can advance. Then the time steps will be informed in
+time units. Following, any time there is communication they will inform the
+absolute time in time units, and the value of each signal, high, low, Z, or X.
+Signals that did not change do not need to be updated. If this is a synchronous
+mode simulation, the first one will be the clock.
+
+The times are always absolute so that if one of the simulators starts slipping
+they will see events going backwards and they can allert the user there is
+something wrong.
+
+*** Possible ideas for improvement
+* Currently only two simulators can be run. Perhaps having an external program
+build all channels first and then run all simulators and connect them would
+give us the option of multiple simulators.
+
+* There is no way for real or integer values to be transfered. This would be
+nice for more sofisticated HDL simulators, for example, SystemC, VHDL or
+SystemVerilog simulators, or perhaps plain old Verilog using real variables.
+This could be done perhaps by adding comma separated floating point values to
+the end.
+
+* Add support for other languages like SystemC and VHDL. Also explore ways to
+improve communication and reduce unecessary interruptions on simulators.
