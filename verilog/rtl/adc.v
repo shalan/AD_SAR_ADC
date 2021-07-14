@@ -31,6 +31,12 @@ module adc(
     wire        sar_cmp = cmp_sel ? cmp : Q;
     
     ACMP COMP (
+    `ifdef USE_POWER_PINS
+        .VPWR(VPWR),
+        .VGND(VGND),
+        .VDD(VPWR),
+        .VSS(VGND),
+    `endif
         .clk(clk),
         .INP(INP),
         .INN(INN),
