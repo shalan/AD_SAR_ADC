@@ -36,7 +36,7 @@ module SAR  #(parameter SIZE = 8) (
         endcase
 	  
 	always @(posedge clk or posedge rst)
-        if(rstn)
+        if(rst)
             state <= IDLE;
         else
             state <= nstate;
