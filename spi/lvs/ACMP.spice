@@ -1,0 +1,154 @@
+* NGSPICE file created from ACMP.ext - technology: sky130A
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__decap_8 abstract view
+.subckt sky130_fd_sc_hd__decap_8 VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__decap_4 abstract view
+.subckt sky130_fd_sc_hd__decap_4 VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__diode_2 abstract view
+.subckt sky130_fd_sc_hd__diode_2 DIODE VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__inv_1 abstract view
+.subckt sky130_fd_sc_hd__inv_1 A VGND VNB VPB VPWR Y
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__decap_12 abstract view
+.subckt sky130_fd_sc_hd__decap_12 VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__decap_6 abstract view
+.subckt sky130_fd_sc_hd__decap_6 VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__fill_2 abstract view
+.subckt sky130_fd_sc_hd__fill_2 VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__o221ai_1 abstract view
+.subckt sky130_fd_sc_hd__o221ai_1 A1 A2 B1 B2 C1 VGND VNB VPB VPWR Y
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__decap_3 abstract view
+.subckt sky130_fd_sc_hd__decap_3 VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__a221oi_1 abstract view
+.subckt sky130_fd_sc_hd__a221oi_1 A1 A2 B1 B2 C1 VGND VNB VPB VPWR Y
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__buf_1 abstract view
+.subckt sky130_fd_sc_hd__buf_1 A VGND VNB VPB VPWR X
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__fill_1 abstract view
+.subckt sky130_fd_sc_hd__fill_1 VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__clkbuf_1 abstract view
+.subckt sky130_fd_sc_hd__clkbuf_1 A VGND VNB VPB VPWR X
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__nor3_1 abstract view
+.subckt sky130_fd_sc_hd__nor3_1 A B C VGND VNB VPB VPWR Y
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__tapvpwrvgnd_1 abstract view
+.subckt sky130_fd_sc_hd__tapvpwrvgnd_1 VGND VPWR
+.ends
+
+.subckt ACMP INN INP Q VDD VSS clk vccd2 vssd2
+XFILLER_3_12 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_8
+XFILLER_5_6 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XFILLER_3_25 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XFILLER_0_47 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XANTENNA_x6_B1 clk vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__diode_2
+Xx3 x9/Y vssd2 vssd2 vccd2 vccd2 x3/Y sky130_fd_sc_hd__inv_1
+Xx2 x6/Y vssd2 vssd2 vccd2 vccd2 x2/Y sky130_fd_sc_hd__inv_1
+XFILLER_0_15 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_12
+XANTENNA_x9_B1 clk vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__diode_2
+XFILLER_3_49 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XFILLER_0_38 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_6
+XFILLER_0_27 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__fill_2
+XFILLER_3_6 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XFILLER_1_3 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_12
+Xx6 x7/A2 x7/A2 clk x9/B2 x9/Y vssd2 vssd2 vccd2 vccd2 x6/Y sky130_fd_sc_hd__o221ai_1
+XPHY_0 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+Xx7 x7/A2 x7/A2 x8/B1 x8/B2 x8/Y vssd2 vssd2 vccd2 vccd2 x7/Y sky130_fd_sc_hd__a221oi_1
+XPHY_1 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+XFILLER_1_41 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XFILLER_1_30 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XFILLER_4_41 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_8
+Xx8 x9/A2 x9/A2 x8/B1 x8/B2 x7/Y vssd2 vssd2 vccd2 vccd2 x8/Y sky130_fd_sc_hd__a221oi_1
+XPHY_2 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+XFILLER_4_53 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XPHY_4 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+XPHY_3 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+Xx9 x9/A2 x9/A2 clk x9/B2 x6/Y vssd2 vssd2 vccd2 vccd2 x9/Y sky130_fd_sc_hd__o221ai_1
+XANTENNA_input4_A VSS vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__diode_2
+XPHY_5 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+XPHY_6 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+XFILLER_1_56 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+Xinput1 INN vssd2 vssd2 vccd2 vccd2 x9/A2 sky130_fd_sc_hd__buf_1
+XFILLER_4_35 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__fill_2
+XPHY_7 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+XFILLER_4_58 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__fill_1
+XPHY_8 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+XANTENNA_input2_A INP vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__diode_2
+Xinput2 INP vssd2 vssd2 vccd2 vccd2 x7/A2 sky130_fd_sc_hd__buf_1
+XFILLER_1_25 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+Xinput3 VDD vssd2 vssd2 vccd2 vccd2 x8/B2 sky130_fd_sc_hd__buf_1
+XPHY_9 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+XFILLER_4_15 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_12
+Xinput4 VSS vssd2 vssd2 vccd2 vccd2 x9/B2 sky130_fd_sc_hd__clkbuf_1
+XFILLER_1_48 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_8
+XFILLER_1_15 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_8
+XFILLER_4_49 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__fill_1
+XFILLER_4_27 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_8
+XFILLER_2_50 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_6
+XFILLER_5_50 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__fill_1
+XFILLER_4_3 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_12
+XFILLER_5_30 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_12
+XFILLER_5_42 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_8
+XFILLER_2_21 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XFILLER_2_3 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_12
+XFILLER_5_54 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XFILLER_5_12 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_12
+Xx10 x3/Y x7/Y x11/Y vssd2 vssd2 vccd2 vccd2 x11/A sky130_fd_sc_hd__nor3_1
+XFILLER_2_56 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__fill_1
+XFILLER_5_24 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XPHY_10 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+Xx11 x11/A x2/Y x8/Y vssd2 vssd2 vccd2 vccd2 x11/Y sky130_fd_sc_hd__nor3_1
+XFILLER_0_3 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_12
+XPHY_11 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+XFILLER_2_58 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__fill_1
+XFILLER_2_15 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XPHY_12 vssd2 vccd2 sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_2_39 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XFILLER_2_28 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+Xx15 clk vssd2 vssd2 vccd2 vccd2 x8/B1 sky130_fd_sc_hd__inv_1
+XPHY_13 vssd2 vccd2 sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_5_28 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__fill_1
+XANTENNA_input3_A VDD vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__diode_2
+XPHY_14 vssd2 vccd2 sky130_fd_sc_hd__tapvpwrvgnd_1
+XANTENNA_x15_A clk vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__diode_2
+XPHY_15 vssd2 vccd2 sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_30 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XFILLER_3_41 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XFILLER_3_30 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XPHY_16 vssd2 vccd2 sky130_fd_sc_hd__tapvpwrvgnd_1
+XPHY_17 vssd2 vccd2 sky130_fd_sc_hd__tapvpwrvgnd_1
+XANTENNA_input1_A INN vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__diode_2
+XFILLER_3_20 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_3
+XFILLER_0_54 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XPHY_19 vssd2 vccd2 sky130_fd_sc_hd__tapvpwrvgnd_1
+XPHY_18 vssd2 vccd2 sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_44 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__fill_1
+Xoutput5 x11/A vssd2 vssd2 vccd2 vccd2 Q sky130_fd_sc_hd__buf_1
+XFILLER_3_55 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__decap_4
+XFILLER_0_34 vssd2 vssd2 vccd2 vccd2 sky130_fd_sc_hd__fill_1
+.ends
+
