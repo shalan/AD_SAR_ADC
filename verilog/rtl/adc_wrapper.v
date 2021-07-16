@@ -31,10 +31,11 @@
 
 module adc_wrapper (
 `ifdef USE_POWER_PINS
-    inout vccd1,	// User area 1 1.8V supply
-    inout vssd1,	// User area 1 digital ground
+    input wire vccd1,	// User area 1 1.8V supply
+    input wire vssd1,	// User area 1 digital ground
+    input wire vccd2,	// User area 2 1.8V supply (analog)
+    input wire vssd2,	// User area 2 ground      (analog)
 `endif
-
     // Wishbone Slave ports (WB MI A)
     input wb_clk_i,
     input wb_rst_i,
@@ -76,16 +77,28 @@ module adc_wrapper (
 
     /*  
     ADC PIN OUT
-        ---------------------------------
-        | ADC PIN  | IO        | Mode   |
-        ---------------------------------
-        | start    | io[28]    | Input  |
-        | done     | io[29]    | Output |
-        | data     | io[37:30] | Output | 
-        | INP      | io[7]     | Input  | 
-        | INN      | io[8]     | Input  | 
-        | Q        | io[9]     | Output |
-        ---------------------------------
+        ----------------------------------
+        | ADC PIN   | IO        | Mode   |
+        ----------------------------------
+        | d6        | io[17]    | Input  |
+        | d6        | io[18]    | Input  |
+        | d5        | io[19]    | Input  |
+        | d4        | io[20]    | Input  |
+        | d3        | io[21]    | Input  |
+        | d2        | io[22]    | Input  |
+        | d1        | io[23]    | Input  |
+        | d0        | io[24]    | Input  |
+        | cmp       | io[25]    | Input  |
+        | cmp_sel   | io[26]    | Input  |
+        | Q         | io[27]    | Output |
+        | start     | io[28]    | Input  |
+        | done      | io[29]    | Output |
+        | data      | io[37:30] | Output | 
+        | INP       | io[7]*    | Input  | 
+        | INN       | io[8]*    | Input  | 
+        | dac_inp1  | io[9]*    | Input  | 
+        | dac_out_v | io[10]*   | Output | 
+        ----------------------------------
     */
     
     // Outputs 
@@ -93,27 +106,46 @@ module adc_wrapper (
     assign io_oeb[29]    = 1'b0 ;
     assign io_oeb[27]    = 1'b0 ;
     assign io_oeb[9]     = 1'b0 ;
+    assign io_oeb[10] = 1'b0 ;
 
     // Inputs
-    assign io_oeb[28] = 1'b1 ;   
-    assign io_oeb[7]  = 1'b1 ;
-    assign io_oeb[8]  = 1'b1 ;
+    assign io_oeb[28] = 1'b1 ;
+    assign io_oeb[25] = 1'b1 ;
+    assign io_oeb[26] = 1'b1 ;
+    assign io_oeb[24:17] = 1'b1 ;   
+    assign io_oeb[9] =  1'b1 ;
+    assign io_oeb[8] =  1'b1 ;
+    assign io_oeb[7] =  1'b1 ;
 
     adc adc(
     `ifdef USE_POWER_PINS 
-        .VPWR   (vccd1),
-        .VGND   (vssd1),
+        .vccd1       (vccd1),
+        .vssd1       (vssd1),
+        .vccd2       (vccd2),
+        .vssd2       (vssd2),
     `endif
-        .clk    (wb_clk_i),         // The clock (digital)
-        .rstn   (wb_rst_i),         // Active low reset (digital)
-        .start  (io_in[28]),        // Conversion start (digital)
-        .done   (io_out[29]),       // Conversion is done (digital)
-        .data   (io_out[37:30]),    // SAR o/p (digital)
-
+        .clk        (wb_clk_i),         // The clock (digital)
+        .rstn       (wb_rst_i),         // Active low reset (digital)
+        .start      (io_in[28]),        // Conversion start (digital)
+        .done       (io_out[29]),       // Conversion is done (digital)
+        .data       (io_out[37:30]),    // SAR o/p (digital)
+        .cmp_sel    (io_in[26]), 
+        .cmp        (io_in[25]),
         // ACMP Ports for debugging
-        .INP    (analog_io[0]),     // mprj_io[7]  (Analog)
-        .INN    (analog_io[1]),     // mprj_io[8]  (Analog)
-        .Q      (io_out[27])        // mprj_io[27] (Digital)
+        .INP        (analog_io[0]),     // mprj_io[7]  (Analog)
+        .INN        (analog_io[1]),     // mprj_io[8]  (Analog)
+        .Q          (io_out[27]),       // mprj_io[27] (Digital)
+        // DAC Ports    
+        .d0         (io_in[24]),        // DAC input data (digital)
+        .d1         (io_in[23]),
+        .d2         (io_in[22]),
+        .d3         (io_in[21]),
+        .d4         (io_in[20]),
+        .d5         (io_in[19]),
+        .d6         (io_in[18]),
+        .d7         (io_in[17]),        
+        .dac_inp1   (analog_io[2]),     // (Analog)
+        .dac_out_v  (analog_io[3])      // (Analog)
     );
 
 

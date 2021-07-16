@@ -42,9 +42,10 @@ set stdcell_core {
 set stdcell_macro {
     name grid
     straps {
-	    $::env(FP_PDN_LOWER_LAYER) {width $::env(FP_PDN_VWIDTH) pitch $::env(FP_PDN_VPITCH) offset $::env(FP_PDN_VOFFSET)}
+        $::env(FP_PDN_LOWER_LAYER) {width $::env(FP_PDN_VWIDTH) pitch $::env(FP_PDN_VPITCH) offset $::env(FP_PDN_VOFFSET)}
+	    $::env(FP_PDN_UPPER_LAYER) {width $::env(FP_PDN_HWIDTH) pitch $::env(FP_PDN_HPITCH) offset $::env(FP_PDN_HOFFSET)}
     }
-    connect {}
+    connect {{$::env(FP_PDN_LOWER_LAYER) $::env(FP_PDN_UPPER_LAYER)}}
 }
 
 # Assesses whether the deisgn is the core of the chip or not based on the value of $::env(DESIGN_IS_CORE) and uses the appropriate stdcell section
@@ -86,14 +87,27 @@ pdngen::specify_grid stdcell [subst $stdcell]
 
 # A general macro that follows the premise of the set heirarchy. You may want to modify this or add other macro configs
 # TODO: generate automatically per instance:
-set macro {
-    orient {R0 R180 MX MY R90 R270 MXR90 MYR90}
-    power_pins $::env(VDD_NET)
-    ground_pins $::env(GND_NET)
-    blockages "li1 met1 met2 met3"
-    straps {
+
+if { $::env(VDD_NET) == "vccd1" } {
+    set macro {
+        orient {R0 R180 MX MY R90 R270 MXR90 MYR90}
+        power_pins "$::env(VDD_NET)"
+        ground_pins "$::env(GND_NET)"
+        blockages "li1 met1 met2 met3 met4"
+        straps {
+        }
+        connect {{met4_PIN_ver met5}}
     }
-    connect {{met3_PIN_hor met4}}
+} else {
+    set macro {
+        orient {R0 R180 MX MY R90 R270 MXR90 MYR90}
+        power_pins "$::env(VDD_NET) vdd"
+        ground_pins "$::env(GND_NET) gnd"
+        blockages "li1 met1 met2 met3 met4"
+        straps {
+        }
+        connect {{met4_PIN_ver met5}}
+    }
 }
 
 pdngen::specify_grid macro [subst $macro]

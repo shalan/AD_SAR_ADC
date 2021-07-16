@@ -1,4 +1,10 @@
 module adc(
+`ifdef USE_POWER_PINS
+    input wire vccd1,	        // User area 1 1.8V supply
+    input wire vssd1,	        // User area 1 digital ground
+    input wire vccd2,	        // User area 2 1.8V supply (analog)
+    input wire vssd2,	        // User area 2 ground      (analog)
+`endif
     input   wire        clk,        // The clock (digital)
     input   wire        rstn,       // Active low reset (digital)
     input   wire        start,      // Conversion start (digital)
@@ -26,36 +32,29 @@ module adc(
 
 );
 
-    wire [7:0]  datan;
-    wire        clkn;
-    wire        sar_cmp = cmp_sel ? cmp : Q;
-    
-    ACMP COMP (
+    ACMP_SAR COMP (
     `ifdef USE_POWER_PINS
-        .VPWR(VPWR),
-        .VGND(VGND),
-        .VDD(VPWR),
-        .VSS(VGND),
+        .vccd1       (vccd1),
+        .vssd1       (vsdd1),
+        .vccd2       (vccd2),
+        .vssd2       (vssd2),
     `endif
         .clk(clk),
+        .start(start),
+        .done(done),
+        .data(data),    
+        .cmp_sel(cmp_sel),
+        .cmp(cmp),
         .INP(INP),
         .INN(INN),
-        .Q(Q)    
+        .Q(Q),
     );
 
-    SAR CTRL ( 
-        .clk(clk),   
-        .rstn(rstn),  
-        .start(start),
-        .cmp(sar_cmp),
-        .out(data),    
-        .outn(datan),
-        .done(done),
-        .clkn(clkn) 
-    );
-	
-
-    dac_8bit DAC (
+    DAC_8BIT DAC (
+     `ifdef USE_POWER_PINS
+        .vdd(vccd2),
+        .gnd(vssd2),
+    `endif 
         .d0(d0),
         .d1(d1),
         .d2(d2),
@@ -64,11 +63,9 @@ module adc(
         .d5(d5),
         .d6(d6),
         .d7(d7),
-        
         .inp1(dac_inp1),
-        
         .out_v(dac_out_v)
-);
+    );
 
 
 endmodule

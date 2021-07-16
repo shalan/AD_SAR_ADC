@@ -6,13 +6,13 @@ MACRO ACMP
   CLASS BLOCK ;
   FOREIGN ACMP ;
   ORIGIN 0.000 0.000 ;
-  SIZE 62.820 BY 72.380 ;
+  SIZE 60.920 BY 48.720 ;
   PIN INN
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 47.630 35.380 53.130 36.500 ;
+        RECT 46.680 24.770 50.680 25.890 ;
     END
   END INN
   PIN INP
@@ -20,7 +20,7 @@ MACRO ACMP
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 47.630 15.600 53.130 16.720 ;
+        RECT 46.680 11.430 50.680 12.550 ;
     END
   END INP
   PIN Q
@@ -28,7 +28,7 @@ MACRO ACMP
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 47.630 55.160 53.130 56.280 ;
+        RECT 46.680 38.110 50.680 39.230 ;
     END
   END Q
   PIN VDD
@@ -36,7 +36,7 @@ MACRO ACMP
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 10.130 55.160 15.630 56.280 ;
+        RECT 10.680 38.110 14.680 39.230 ;
     END
   END VDD
   PIN VSS
@@ -44,7 +44,7 @@ MACRO ACMP
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 10.130 35.380 15.630 36.500 ;
+        RECT 10.680 24.770 14.680 25.890 ;
     END
   END VSS
   PIN clk
@@ -52,183 +52,130 @@ MACRO ACMP
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 10.130 15.600 15.630 16.720 ;
+        RECT 10.680 11.430 14.680 12.550 ;
     END
   END clk
-  PIN VPWR
-    DIRECTION INOUT ;
-    USE POWER ;
-    PORT
-      LAYER met2 ;
-        RECT 40.235 0.000 42.335 72.380 ;
-    END
-  END VPWR
-  PIN VPWR
-    DIRECTION INOUT ;
-    USE POWER ;
-    PORT
-      LAYER met2 ;
-        RECT 30.580 0.000 32.680 72.380 ;
-    END
-  END VPWR
-  PIN VPWR
-    DIRECTION INOUT ;
-    USE POWER ;
-    PORT
-      LAYER met2 ;
-        RECT 20.925 0.000 23.025 72.380 ;
-    END
-  END VPWR
-  PIN VPWR
-    DIRECTION INOUT ;
-    USE POWER ;
-    PORT
-      LAYER met2 ;
-        RECT 56.520 4.000 58.820 68.380 ;
-    END
-  END VPWR
-  PIN VPWR
-    DIRECTION INOUT ;
-    USE POWER ;
-    PORT
-      LAYER met2 ;
-        RECT 4.000 4.000 6.300 68.380 ;
-    END
-  END VPWR
-  PIN VPWR
+  PIN vccd2
     DIRECTION INOUT ;
     USE POWER ;
     PORT
       LAYER met3 ;
-        RECT 4.000 66.080 58.820 68.380 ;
+        RECT 5.700 39.020 55.220 43.020 ;
     END
-  END VPWR
-  PIN VPWR
+  END vccd2
+  PIN vccd2
     DIRECTION INOUT ;
     USE POWER ;
     PORT
       LAYER met3 ;
-        RECT 0.000 47.875 62.820 49.675 ;
+        RECT 5.700 5.700 55.220 9.700 ;
     END
-  END VPWR
-  PIN VPWR
+  END vccd2
+  PIN vccd2
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER met3 ;
-        RECT 0.000 35.130 62.820 36.930 ;
+      LAYER met4 ;
+        RECT 39.285 0.000 41.385 48.720 ;
     END
-  END VPWR
-  PIN VPWR
+  END vccd2
+  PIN vccd2
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER met3 ;
-        RECT 0.000 22.385 62.820 24.185 ;
+      LAYER met4 ;
+        RECT 29.630 0.000 31.730 48.720 ;
     END
-  END VPWR
-  PIN VPWR
+  END vccd2
+  PIN vccd2
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER met3 ;
-        RECT 4.000 4.000 58.820 6.300 ;
+      LAYER met4 ;
+        RECT 19.975 0.000 22.075 48.720 ;
     END
-  END VPWR
-  PIN VGND
+  END vccd2
+  PIN vccd2
     DIRECTION INOUT ;
-    USE GROUND ;
+    USE POWER ;
     PORT
-      LAYER met2 ;
-        RECT 60.520 0.000 62.820 72.380 ;
+      LAYER met4 ;
+        RECT 51.220 5.700 55.220 43.020 ;
     END
-  END VGND
-  PIN VGND
+  END vccd2
+  PIN vccd2
     DIRECTION INOUT ;
-    USE GROUND ;
+    USE POWER ;
     PORT
-      LAYER met2 ;
-        RECT 35.405 0.000 37.505 72.380 ;
+      LAYER met4 ;
+        RECT 5.700 5.700 9.700 43.020 ;
     END
-  END VGND
-  PIN VGND
-    DIRECTION INOUT ;
-    USE GROUND ;
-    PORT
-      LAYER met2 ;
-        RECT 25.755 0.000 27.855 72.380 ;
-    END
-  END VGND
-  PIN VGND
-    DIRECTION INOUT ;
-    USE GROUND ;
-    PORT
-      LAYER met2 ;
-        RECT 0.000 0.000 2.300 72.380 ;
-    END
-  END VGND
-  PIN VGND
+  END vccd2
+  PIN vssd2
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
       LAYER met3 ;
-        RECT 0.000 70.080 62.820 72.380 ;
+        RECT 0.000 44.720 60.920 48.720 ;
     END
-  END VGND
-  PIN VGND
+  END vssd2
+  PIN vssd2
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
       LAYER met3 ;
-        RECT 0.000 41.505 62.820 43.305 ;
+        RECT 0.000 0.000 60.920 4.000 ;
     END
-  END VGND
-  PIN VGND
+  END vssd2
+  PIN vssd2
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER met3 ;
-        RECT 0.000 28.755 62.820 30.555 ;
+      LAYER met4 ;
+        RECT 56.920 0.000 60.920 48.720 ;
     END
-  END VGND
-  PIN VGND
+  END vssd2
+  PIN vssd2
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER met3 ;
-        RECT 0.000 0.000 62.820 2.300 ;
+      LAYER met4 ;
+        RECT 34.455 0.000 36.555 48.720 ;
     END
-  END VGND
+  END vssd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 24.805 0.000 26.905 48.720 ;
+    END
+  END vssd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 0.000 0.000 4.000 48.720 ;
+    END
+  END vssd2
   OBS
       LAYER li1 ;
-        RECT 17.150 17.065 45.670 55.315 ;
+        RECT 16.200 16.115 44.720 32.605 ;
       LAYER met1 ;
-        RECT 16.760 16.910 46.980 55.470 ;
+        RECT 15.810 15.960 46.030 32.760 ;
       LAYER met2 ;
-        RECT 15.630 56.560 20.645 72.380 ;
-        RECT 15.910 54.880 20.645 56.560 ;
-        RECT 15.630 36.780 20.645 54.880 ;
-        RECT 15.910 35.100 20.645 36.780 ;
-        RECT 15.630 17.000 20.645 35.100 ;
-        RECT 15.910 15.320 20.645 17.000 ;
-        RECT 15.630 0.000 20.645 15.320 ;
-        RECT 23.305 0.000 25.475 72.380 ;
-        RECT 28.135 0.000 30.300 72.380 ;
-        RECT 32.960 0.000 35.125 72.380 ;
-        RECT 37.785 0.000 39.955 72.380 ;
-        RECT 42.615 56.560 47.630 72.380 ;
-        RECT 42.615 54.880 47.350 56.560 ;
-        RECT 42.615 36.780 47.630 54.880 ;
-        RECT 42.615 35.100 47.350 36.780 ;
-        RECT 42.615 17.000 47.630 35.100 ;
-        RECT 42.615 15.320 47.350 17.000 ;
-        RECT 42.615 0.000 47.630 15.320 ;
+        RECT 14.960 37.830 46.400 38.740 ;
+        RECT 14.680 26.170 46.680 37.830 ;
+        RECT 14.960 24.490 46.400 26.170 ;
+        RECT 14.680 12.830 46.680 24.490 ;
+        RECT 14.960 11.920 46.400 12.830 ;
       LAYER met3 ;
-        RECT 0.000 41.500 62.820 41.505 ;
-        RECT 0.000 37.330 62.820 41.105 ;
-        RECT 0.000 30.955 62.820 34.730 ;
-        RECT 0.000 24.585 62.820 28.355 ;
-        RECT 0.000 22.380 62.820 22.385 ;
+        RECT 19.975 16.035 41.380 32.685 ;
+      LAYER met4 ;
+        RECT 27.305 0.000 29.230 48.720 ;
+        RECT 32.130 0.000 34.055 48.720 ;
+        RECT 36.955 0.000 38.885 48.720 ;
   END
 END ACMP
 END LIBRARY

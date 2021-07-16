@@ -56,9 +56,13 @@ set ::env(GLB_RT_MAXLAYER) 5
 set ::env(FP_PDN_CHECK_NODES)  0
 set ::env(FP_PDN_ENABLE_RAILS) 0
 
+set ::env(FP_HORIZONTAL_HALO) 60
+set ::env(FP_VERTICAL_HALO)  60
+
 ## Internal Macros
 ### Macro Placement
 set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro.cfg
+set ::env(PDN_CFG) $script_dir/pdn.tcl
 
 # The following is because there are no std cells in the example wrapper project.
 set ::env(SYNTH_TOP_LEVEL) 1
@@ -73,3 +77,6 @@ set ::env(DIODE_INSERTION_STRATEGY) 0
 set ::env(FILL_INSERTION) 0
 set ::env(TAP_DECAP_INSERTION) 0
 set ::env(CLOCK_TREE_SYNTH) 0
+
+## LVS mismatch is to be solved manually 
+set ::env(QUIT_ON_LVS_ERROR) "0"

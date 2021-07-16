@@ -36,15 +36,15 @@ set ::env(CLOCK_NET) "clk"
 set ::env(CLOCK_PERIOD) "10"
 
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 40 60"
+set ::env(DIE_AREA) "0 0 40 40"
 
 set ::env(PL_TARGET_DENSITY) "0.15"
 set ::env(GLB_RT_MAXLAYER) 5
 
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
-set ::env(FP_IO_HEXTEND) "1.5"
-set ::env(FP_IO_VEXTEND) "1.5"
+set ::env(FP_IO_HEXTEND) "-1"
+set ::env(FP_IO_VEXTEND) "-1"
 set ::env(FP_IO_HMETAL) "3"
 set ::env(FP_IO_VMETAL) "4"
 set ::env(FP_IO_VTHICKNESS_MULT) 8
@@ -55,14 +55,12 @@ set ::env(FP_PDN_CHECK_NODES) 0
 set ::env(FP_PDN_CORE_RING) 1
 set ::env(FP_PDN_LOWER_LAYER) "met2"
 set ::env(FP_PDN_UPPER_LAYER) "met3"
-set ::env(FP_PDN_HPITCH) 25
-#set ::env(FP_PDN_VPITCH)
-#set ::env(FP_PDN_VOFFSET)
-set ::env(FP_PDN_HOFFSET) 18 
-set ::env(FP_PDN_CORE_RING_VOFFSET) "12"
-set ::env(FP_PDN_CORE_RING_HOFFSET) "12"
-set ::env(FP_PDN_CORE_RING_VWIDTH) "2.3"
-set ::env(FP_PDN_CORE_RING_HWIDTH) "2.3"
+set ::env(FP_PDN_HPITCH) 35
+set ::env(FP_PDN_HOFFSET) 15
+set ::env(FP_PDN_CORE_RING_VOFFSET) "8.5"
+set ::env(FP_PDN_CORE_RING_HOFFSET) "8.5"
+set ::env(FP_PDN_CORE_RING_VWIDTH) "4"
+set ::env(FP_PDN_CORE_RING_HWIDTH) "4"
 
 set ::env(PL_RESIZER_DESIGN_OPTIMIZATIONS) 1
 set ::env(PL_RESIZER_TIMING_OPTIMIZATIONS) 0
@@ -70,3 +68,8 @@ set ::env(PL_RESIZER_TIMING_OPTIMIZATIONS) 0
 set ::env(DIODE_INSERTION_STRATEGY) 4
 
 set ::env(MAGIC_ZEROIZE_ORIGIN) 1
+
+set ::env(VDD_PIN) "vccd2"
+set ::env(GND_PIN) "vssd2"
+set ::env(VDD_NETS) [list {vccd2}]
+set ::env(GND_NETS) [list {vssd2}]

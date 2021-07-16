@@ -1,0 +1,558 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO ACMP_SAR
+  CLASS BLOCK ;
+  FOREIGN ACMP_SAR ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 350.000 BY 350.000 ;
+  PIN INN
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 346.000 174.120 350.000 174.720 ;
+    END
+  END INN
+  PIN INP
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 346.000 57.840 350.000 58.440 ;
+    END
+  END INP
+  PIN Q
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 346.000 291.080 350.000 291.680 ;
+    END
+  END Q
+  PIN clk
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 87.490 0.000 87.770 4.000 ;
+    END
+  END clk
+  PIN cmp
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 262.290 346.000 262.570 350.000 ;
+    END
+  END cmp
+  PIN cmp_sel
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 87.490 346.000 87.770 350.000 ;
+    END
+  END cmp_sel
+  PIN data[0]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 87.080 4.000 87.680 ;
+    END
+  END data[0]
+  PIN data[1]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 121.760 4.000 122.360 ;
+    END
+  END data[1]
+  PIN data[2]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 157.120 4.000 157.720 ;
+    END
+  END data[2]
+  PIN data[3]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 191.800 4.000 192.400 ;
+    END
+  END data[3]
+  PIN data[4]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 227.160 4.000 227.760 ;
+    END
+  END data[4]
+  PIN data[5]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 261.840 4.000 262.440 ;
+    END
+  END data[5]
+  PIN data[6]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 297.200 4.000 297.800 ;
+    END
+  END data[6]
+  PIN data[7]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 331.880 4.000 332.480 ;
+    END
+  END data[7]
+  PIN done
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 51.720 4.000 52.320 ;
+    END
+  END done
+  PIN rstn
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 262.290 0.000 262.570 4.000 ;
+    END
+  END rstn
+  PIN start
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 17.040 4.000 17.640 ;
+    END
+  END start
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 335.090 10.640 338.590 337.520 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 290.090 10.640 293.590 337.520 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 245.090 10.640 248.590 337.520 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 200.090 10.640 203.590 337.520 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 155.090 10.880 158.590 337.520 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 110.090 10.880 113.590 337.520 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 65.090 10.640 68.590 337.520 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 20.090 10.640 23.590 337.520 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met5 ;
+        RECT -1.280 342.480 350.880 344.080 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met5 ;
+        RECT -4.580 332.850 354.180 334.450 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met5 ;
+        RECT -4.580 179.670 354.180 181.270 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met5 ;
+        RECT -4.580 26.490 354.180 28.090 ;
+    END
+  END vccd1
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met5 ;
+        RECT -1.280 4.080 350.880 5.680 ;
+    END
+  END vccd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 312.590 10.640 316.090 337.520 ;
+    END
+  END vssd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 267.590 10.640 271.090 337.520 ;
+    END
+  END vssd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 222.590 10.640 226.090 337.520 ;
+    END
+  END vssd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 177.590 10.880 181.090 337.520 ;
+    END
+  END vssd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 132.590 10.880 136.090 337.520 ;
+    END
+  END vssd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 87.590 10.640 91.090 337.520 ;
+    END
+  END vssd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 42.590 10.640 46.090 337.520 ;
+    END
+  END vssd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met5 ;
+        RECT -4.580 345.780 354.180 347.380 ;
+    END
+  END vssd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met5 ;
+        RECT -4.580 256.260 354.180 257.860 ;
+    END
+  END vssd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met5 ;
+        RECT -4.580 103.080 354.180 104.680 ;
+    END
+  END vssd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met5 ;
+        RECT -4.580 0.780 354.180 2.380 ;
+    END
+  END vssd1
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 295.290 10.880 298.790 337.280 ;
+    END
+  END vccd2
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 250.290 10.880 253.790 337.280 ;
+    END
+  END vccd2
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 205.290 10.880 208.790 337.280 ;
+    END
+  END vccd2
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 160.290 10.880 163.790 337.280 ;
+    END
+  END vccd2
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 115.290 10.880 118.790 337.280 ;
+    END
+  END vccd2
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 70.290 10.880 73.790 337.280 ;
+    END
+  END vccd2
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 25.290 10.880 28.790 337.280 ;
+    END
+  END vccd2
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met5 ;
+        RECT -7.880 349.080 357.480 350.680 ;
+    END
+  END vccd2
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met5 ;
+        RECT -11.180 183.210 360.780 184.810 ;
+    END
+  END vccd2
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met5 ;
+        RECT -11.180 30.030 360.780 31.630 ;
+    END
+  END vccd2
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met5 ;
+        RECT -7.880 -2.520 357.480 -0.920 ;
+    END
+  END vccd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 317.790 10.880 321.290 337.280 ;
+    END
+  END vssd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 272.790 10.880 276.290 337.280 ;
+    END
+  END vssd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 227.790 10.880 231.290 337.280 ;
+    END
+  END vssd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 182.790 10.880 186.290 337.280 ;
+    END
+  END vssd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 137.790 10.880 141.290 337.280 ;
+    END
+  END vssd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 92.790 10.880 96.290 337.280 ;
+    END
+  END vssd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 47.790 10.880 51.290 337.280 ;
+    END
+  END vssd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met5 ;
+        RECT -11.180 352.380 360.780 353.980 ;
+    END
+  END vssd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met5 ;
+        RECT -11.180 259.800 360.780 261.400 ;
+    END
+  END vssd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met5 ;
+        RECT -11.180 106.620 360.780 108.220 ;
+    END
+  END vssd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met5 ;
+        RECT -11.180 -5.820 360.780 -4.220 ;
+    END
+  END vssd2
+  OBS
+      LAYER li1 ;
+        RECT 5.520 10.795 344.080 337.365 ;
+      LAYER met1 ;
+        RECT 5.520 10.640 344.080 337.520 ;
+      LAYER met2 ;
+        RECT 6.990 345.720 87.210 346.000 ;
+        RECT 88.050 345.720 262.010 346.000 ;
+        RECT 262.850 345.720 340.770 346.000 ;
+        RECT 6.990 4.280 340.770 345.720 ;
+        RECT 6.990 4.000 87.210 4.280 ;
+        RECT 88.050 4.000 262.010 4.280 ;
+        RECT 262.850 4.000 340.770 4.280 ;
+      LAYER met3 ;
+        RECT 4.000 332.880 346.000 337.445 ;
+        RECT 4.400 331.480 346.000 332.880 ;
+        RECT 4.000 298.200 346.000 331.480 ;
+        RECT 4.400 296.800 346.000 298.200 ;
+        RECT 4.000 292.080 346.000 296.800 ;
+        RECT 4.000 290.680 345.600 292.080 ;
+        RECT 4.000 262.840 346.000 290.680 ;
+        RECT 4.400 261.440 346.000 262.840 ;
+        RECT 4.000 228.160 346.000 261.440 ;
+        RECT 4.400 226.760 346.000 228.160 ;
+        RECT 4.000 192.800 346.000 226.760 ;
+        RECT 4.400 191.400 346.000 192.800 ;
+        RECT 4.000 175.120 346.000 191.400 ;
+        RECT 4.000 173.720 345.600 175.120 ;
+        RECT 4.000 158.120 346.000 173.720 ;
+        RECT 4.400 156.720 346.000 158.120 ;
+        RECT 4.000 122.760 346.000 156.720 ;
+        RECT 4.400 121.360 346.000 122.760 ;
+        RECT 4.000 88.080 346.000 121.360 ;
+        RECT 4.400 86.680 346.000 88.080 ;
+        RECT 4.000 58.840 346.000 86.680 ;
+        RECT 4.000 57.440 345.600 58.840 ;
+        RECT 4.000 52.720 346.000 57.440 ;
+        RECT 4.400 51.320 346.000 52.720 ;
+        RECT 4.000 18.040 346.000 51.320 ;
+        RECT 4.400 16.640 346.000 18.040 ;
+        RECT 4.000 10.000 346.000 16.640 ;
+  END
+END ACMP_SAR
+END LIBRARY
+

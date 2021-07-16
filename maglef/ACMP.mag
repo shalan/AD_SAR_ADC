@@ -1,117 +1,90 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1626095704
+timestamp 1626378704
 << obsli1 >>
-rect 3430 3413 9134 11063
+rect 3240 3223 8944 6521
 << obsm1 >>
-rect 3352 3382 9396 11094
+rect 3162 3192 9206 6552
 << metal2 >>
-rect 0 0 460 14476
-rect 800 800 1260 13676
-rect 2026 11032 3126 11256
-rect 2026 7076 3126 7300
-rect 2026 3120 3126 3344
-rect 4185 0 4605 14476
-rect 5151 0 5571 14476
-rect 6116 0 6536 14476
-rect 7081 0 7501 14476
-rect 8047 0 8467 14476
-rect 9526 11032 10626 11256
-rect 9526 7076 10626 7300
-rect 9526 3120 10626 3344
-rect 11304 800 11764 13676
-rect 12104 0 12564 14476
+rect 2136 7622 2936 7846
+rect 9336 7622 10136 7846
+rect 2136 4954 2936 5178
+rect 9336 4954 10136 5178
+rect 2136 2286 2936 2510
+rect 9336 2286 10136 2510
 << obsm2 >>
-rect 3126 11312 4129 14476
-rect 3182 10976 4129 11312
-rect 3126 7356 4129 10976
-rect 3182 7020 4129 7356
-rect 3126 3400 4129 7020
-rect 3182 3064 4129 3400
-rect 3126 0 4129 3064
-rect 4661 0 5095 14476
-rect 5627 0 6060 14476
-rect 6592 0 7025 14476
-rect 7557 0 7991 14476
-rect 8523 11312 9526 14476
-rect 8523 10976 9470 11312
-rect 8523 7356 9526 10976
-rect 8523 7020 9470 7356
-rect 8523 3400 9526 7020
-rect 8523 3064 9470 3400
-rect 8523 0 9526 3064
+rect 2992 7566 9280 7748
+rect 2936 5234 9336 7566
+rect 2992 4898 9280 5234
+rect 2936 2566 9336 4898
+rect 2992 2384 9280 2566
 << metal3 >>
-rect 0 14016 12564 14476
-rect 800 13216 11764 13676
-rect 0 9575 12564 9935
-rect 0 8301 12564 8661
-rect 0 7026 12564 7386
-rect 0 5751 12564 6111
-rect 0 4477 12564 4837
-rect 800 800 11764 1260
-rect 0 0 12564 460
+rect 0 8944 12184 9744
+rect 1140 7804 11044 8604
+rect 1140 1140 11044 1940
+rect 0 0 12184 800
 << obsm3 >>
-rect 0 8300 12564 8301
-rect 0 7466 12564 8221
-rect 0 6191 12564 6946
-rect 0 4917 12564 5671
-rect 0 4476 12564 4477
+rect 3995 3207 8276 6537
+<< metal4 >>
+rect 0 0 800 9744
+rect 1140 1140 1940 8604
+rect 3995 0 4415 9744
+rect 4961 0 5381 9744
+rect 5926 0 6346 9744
+rect 6891 0 7311 9744
+rect 7857 0 8277 9744
+rect 10244 1140 11044 8604
+rect 11384 0 12184 9744
+<< obsm4 >>
+rect 5461 0 5846 9744
+rect 6426 0 6811 9744
+rect 7391 0 7777 9744
 << labels >>
-rlabel metal2 s 9526 7076 10626 7300 6 INN
+rlabel metal2 s 9336 4954 10136 5178 6 INN
 port 1 nsew signal input
-rlabel metal2 s 9526 3120 10626 3344 6 INP
+rlabel metal2 s 9336 2286 10136 2510 6 INP
 port 2 nsew signal input
-rlabel metal2 s 9526 11032 10626 11256 6 Q
+rlabel metal2 s 9336 7622 10136 7846 6 Q
 port 3 nsew signal output
-rlabel metal2 s 2026 11032 3126 11256 6 VDD
+rlabel metal2 s 2136 7622 2936 7846 6 VDD
 port 4 nsew signal input
-rlabel metal2 s 2026 7076 3126 7300 6 VSS
+rlabel metal2 s 2136 4954 2936 5178 6 VSS
 port 5 nsew signal input
-rlabel metal2 s 2026 3120 3126 3344 6 clk
+rlabel metal2 s 2136 2286 2936 2510 6 clk
 port 6 nsew signal input
-rlabel metal2 s 8047 0 8467 14476 6 VPWR
+rlabel metal3 s 1140 7804 11044 8604 6 vccd2
 port 7 nsew power bidirectional
-rlabel metal2 s 6116 0 6536 14476 6 VPWR
+rlabel metal3 s 1140 1140 11044 1940 6 vccd2
 port 8 nsew power bidirectional
-rlabel metal2 s 4185 0 4605 14476 6 VPWR
+rlabel metal4 s 7857 0 8277 9744 6 vccd2
 port 9 nsew power bidirectional
-rlabel metal2 s 11304 800 11764 13676 6 VPWR
+rlabel metal4 s 5926 0 6346 9744 6 vccd2
 port 10 nsew power bidirectional
-rlabel metal2 s 800 800 1260 13676 6 VPWR
+rlabel metal4 s 3995 0 4415 9744 6 vccd2
 port 11 nsew power bidirectional
-rlabel metal3 s 800 13216 11764 13676 6 VPWR
+rlabel metal4 s 10244 1140 11044 8604 6 vccd2
 port 12 nsew power bidirectional
-rlabel metal3 s 0 9575 12564 9935 6 VPWR
+rlabel metal4 s 1140 1140 1940 8604 6 vccd2
 port 13 nsew power bidirectional
-rlabel metal3 s 0 7026 12564 7386 6 VPWR
-port 14 nsew power bidirectional
-rlabel metal3 s 0 4477 12564 4837 6 VPWR
-port 15 nsew power bidirectional
-rlabel metal3 s 800 800 11764 1260 6 VPWR
-port 16 nsew power bidirectional
-rlabel metal2 s 12104 0 12564 14476 6 VGND
+rlabel metal3 s 0 8944 12184 9744 6 vssd2
+port 14 nsew ground bidirectional
+rlabel metal3 s 0 0 12184 800 6 vssd2
+port 15 nsew ground bidirectional
+rlabel metal4 s 11384 0 12184 9744 6 vssd2
+port 16 nsew ground bidirectional
+rlabel metal4 s 6891 0 7311 9744 6 vssd2
 port 17 nsew ground bidirectional
-rlabel metal2 s 7081 0 7501 14476 6 VGND
+rlabel metal4 s 4961 0 5381 9744 6 vssd2
 port 18 nsew ground bidirectional
-rlabel metal2 s 5151 0 5571 14476 6 VGND
+rlabel metal4 s 0 0 800 9744 6 vssd2
 port 19 nsew ground bidirectional
-rlabel metal2 s 0 0 460 14476 6 VGND
-port 20 nsew ground bidirectional
-rlabel metal3 s 0 14016 12564 14476 6 VGND
-port 21 nsew ground bidirectional
-rlabel metal3 s 0 8301 12564 8661 6 VGND
-port 22 nsew ground bidirectional
-rlabel metal3 s 0 5751 12564 6111 6 VGND
-port 23 nsew ground bidirectional
-rlabel metal3 s 0 0 12564 460 6 VGND
-port 24 nsew ground bidirectional
 << properties >>
 string LEFclass BLOCK
-string FIXED_BBOX 0 0 12564 14476
+string FIXED_BBOX 0 0 12184 9744
 string LEFview TRUE
 string GDS_FILE /project/openlane/ACMP/runs/ACMP/results/magic/ACMP.gds
-string GDS_END 174046
+string GDS_END 199476
 string GDS_START 52858
 << end >>
 

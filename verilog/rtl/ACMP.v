@@ -1,7 +1,7 @@
 module ACMP(
 `ifdef USE_POWER_PINS
-    input wire VPWR,
-    input wire VGND, 
+    input wire vccd2,
+    input wire vssd2, 
 `endif 
     input   wire clk,
     input   wire INP,

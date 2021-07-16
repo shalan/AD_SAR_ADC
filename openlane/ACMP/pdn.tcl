@@ -23,16 +23,15 @@ pdngen::specify_grid stdcell {
     name grid
 	core_ring {
 		met3 {width $::env(FP_PDN_CORE_RING_HWIDTH) spacing $::env(FP_PDN_CORE_RING_HSPACING) core_offset $::env(FP_PDN_CORE_RING_HOFFSET)}
-		met2 {width $::env(FP_PDN_CORE_RING_VWIDTH) spacing $::env(FP_PDN_CORE_RING_VSPACING) core_offset $::env(FP_PDN_CORE_RING_VOFFSET)}
+		met4 {width $::env(FP_PDN_CORE_RING_VWIDTH) spacing $::env(FP_PDN_CORE_RING_VSPACING) core_offset $::env(FP_PDN_CORE_RING_VOFFSET)}
 	}
 	rails {
 	    met1 {width 0.48 pitch $::env(PLACE_SITE_HEIGHT) offset 0}
 	}
     straps {
-	    met2 {width 2.1 pitch $::env(FP_PDN_VPITCH) offset $::env(FP_PDN_VOFFSET)}
-		met3 {width 1.8 pitch $::env(FP_PDN_HPITCH) offset $::env(FP_PDN_HOFFSET)}
+	    met4 {width 2.1 pitch $::env(FP_PDN_VPITCH) offset $::env(FP_PDN_VOFFSET)}
     }
-    connect {{met1 met2} {met2 met3}}
+    connect {{met1 met4} {met3 met4}}
 }
 
 
