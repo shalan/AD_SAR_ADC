@@ -9,7 +9,7 @@
 
 module SAR  #(parameter SIZE = 8) ( 
     input   wire            clk,    // The clock
-    input   wire            rstn,   // Active low reset
+    input   wire            rst,   // Active high reset
     input   wire            start,  // Conversion start 
     input   wire            cmp,    // Analog comparator output
     output  wire [SIZE-1:0] out,    // The output sample
@@ -35,8 +35,8 @@ module SAR  #(parameter SIZE = 8) (
             default:    nstate = IDLE;
         endcase
 	  
-	always @(posedge clk or negedge rstn)
-        if(!rstn)
+	always @(posedge clk or posedge rst)
+        if(rstn)
             state <= IDLE;
         else
             state <= nstate;
