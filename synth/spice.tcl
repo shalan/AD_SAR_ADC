@@ -9,7 +9,7 @@ if [info exists env(DESIGN)] {
     set DESIGN SAR
 }
 
-read_verilog ../pdk/hd_spice_blackbox.v
+read_verilog $env(BLACKBOX)
 read_verilog $DESIGN.pwr.gl.v 
 write_spice ../spice/$DESIGN.sp
 exit

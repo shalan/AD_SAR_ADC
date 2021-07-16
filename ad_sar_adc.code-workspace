@@ -2,6 +2,9 @@
     "folders": [
         {
             "path": "verilog"
+        },
+        {
+            "path": "."
         }
     ]
 }

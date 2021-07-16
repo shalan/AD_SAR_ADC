@@ -107,7 +107,7 @@ read_liberty -lib -ignore_miss_dir -setattr blackbox $SCL
 if [info exists env(VFILES)] {
     read_verilog $env(VFILES)
 } else {
-    read_verilog ../verilog/$DESIGN.v
+    read_verilog ../verilog/rtl/$DESIGN.v
 }
 if [info exists env(VFILES1)] {
   read_verilog $env(VFILES1)
