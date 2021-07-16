@@ -64,7 +64,6 @@ if { [info exists ::env(FP_PDN_CORE_RING)] } {
     if { $::env(FP_PDN_CORE_RING) == 1 } {
         dict append stdcell core_ring {
                 $::env(FP_PDN_LOWER_LAYER) {width $::env(FP_PDN_CORE_RING_VWIDTH) spacing $::env(FP_PDN_CORE_RING_VSPACING) core_offset $::env(FP_PDN_CORE_RING_VOFFSET)}
-                $::env(FP_PDN_UPPER_LAYER) {width $::env(FP_PDN_CORE_RING_HWIDTH) spacing $::env(FP_PDN_CORE_RING_HSPACING) core_offset $::env(FP_PDN_CORE_RING_HOFFSET)}
             }
     }
 }

@@ -56,8 +56,8 @@ set ::env(GLB_RT_MAXLAYER) 5
 set ::env(FP_PDN_CHECK_NODES)  0
 set ::env(FP_PDN_ENABLE_RAILS) 0
 
-set ::env(FP_HORIZONTAL_HALO) 60
-set ::env(FP_VERTICAL_HALO)  60
+set ::env(FP_HORIZONTAL_HALO) 200
+set ::env(FP_VERTICAL_HALO)  200
 
 ## Internal Macros
 ### Macro Placement

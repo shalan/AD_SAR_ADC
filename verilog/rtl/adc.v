@@ -32,22 +32,32 @@ module adc(
 
 );
 
-    ACMP_SAR COMP (
+    wire [7:0]  datan;
+    wire        clkn;
+    wire        sar_cmp = cmp_sel ? cmp : Q;
+    
+    ACMP COMP (
     `ifdef USE_POWER_PINS
-        .vccd1       (vccd1),
-        .vssd1       (vsdd1),
-        .vccd2       (vccd2),
-        .vssd2       (vssd2),
+        .vccd2(vccd2),
+        .vssd2(vssd2),
+        .VDD(vccd2),
+        .VSS(vssd2),
     `endif
         .clk(clk),
-        .start(start),
-        .done(done),
-        .data(data),    
-        .cmp_sel(cmp_sel),
-        .cmp(cmp),
         .INP(INP),
         .INN(INN),
-        .Q(Q),
+        .Q(Q)    
+    );
+
+    SAR CTRL ( 
+        .clk(clk),   
+        .rstn(rstn),  
+        .start(start),
+        .cmp(sar_cmp),
+        .out(data),    
+        .outn(datan),
+        .done(done),
+        .clkn(clkn) 
     );
 
     DAC_8BIT DAC (

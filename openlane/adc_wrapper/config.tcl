@@ -28,7 +28,6 @@ set ::env(SYNTH_READ_BLACKBOX_LIB) 1
 set ::env(VERILOG_FILES) "\
 	$script_dir/../../caravel/verilog/rtl/defines.v \
 	$script_dir/../../verilog/rtl/SAR.v \
-	$script_dir/../../verilog/rtl/ACMP_SAR.v \
 	$script_dir/../../verilog/rtl/adc.v \
 	$script_dir/../../verilog/rtl/adc_wrapper.v"
 
@@ -42,15 +41,15 @@ set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 set ::env(PDN_CFG) $script_dir/pdn.tcl
 
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 1300 800"
+set ::env(DIE_AREA) "0 0 1100 700"
 
 set ::env(FP_HORIZONTAL_HALO) 15
 set ::env(FP_VERTICAL_HALO)   15
 
+set ::env(GLB_RT_OBS) "met2 109.85000 19.89500 171.54500 69.22000"
 set ::env(CLOCK_TREE_SYNTH) 0
 
-set ::env(PL_RANDOM_GLB_PLACEMENT) 1
-set ::env(PL_TARGET_DENSITY) "0.55"
+set ::env(PL_TARGET_DENSITY) "0.01"
 set ::env(GLB_RT_MAXLAYER) 5
 set ::env(GLB_RT_ADJUSTMENT) 0.15
 
@@ -66,8 +65,10 @@ set ::env(PL_RESIZER_TIMING_OPTIMIZATIONS) 1
 
 set ::env(DIODE_INSERTION_STRATEGY) 4
 
-set ::env(FP_VERTICAL_HALO) "30"
-set ::env(FP_HERTICAL_HALO) "30"
+set ::env(FP_VERTICAL_HALO) "35"
+set ::env(FP_HERTICAL_HALO) "35"
+
+set ::env(FP_PDN_CORE_RING) 1 
 
 ## Internal Macros
 ### Macro Placement

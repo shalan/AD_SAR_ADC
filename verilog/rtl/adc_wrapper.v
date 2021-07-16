@@ -80,7 +80,7 @@ module adc_wrapper (
         ----------------------------------
         | ADC PIN   | IO        | Mode   |
         ----------------------------------
-        | d6        | io[17]    | Input  |
+        | d7        | io[17]    | Input  |
         | d6        | io[18]    | Input  |
         | d5        | io[19]    | Input  |
         | d4        | io[20]    | Input  |
@@ -101,20 +101,34 @@ module adc_wrapper (
         ----------------------------------
     */
     
-    // Outputs 
+    // OUT: data[0:7] 
     assign io_oeb[37:30] = 8'b00000000 ; 
-    assign io_oeb[29]    = 1'b0 ;
-    assign io_oeb[27]    = 1'b0 ;
-    assign io_oeb[9]     = 1'b0 ;
-    assign io_oeb[10] = 1'b0 ;
-
-    // Inputs
+    // OUT: done
+    assign io_oeb[29] = 1'b0 ;
+    // IN : start
     assign io_oeb[28] = 1'b1 ;
-    assign io_oeb[25] = 1'b1 ;
+    // OUT: Q
+    assign io_oeb[27] = 1'b0 ;
+    // IN : cmp_sel
     assign io_oeb[26] = 1'b1 ;
-    assign io_oeb[24:17] = 1'b1 ;   
+    // IN : cmp
+    assign io_oeb[25] = 1'b1 ;
+    // IN : d0-d7
+    assign io_oeb[24] = 1'b1 ;   
+    assign io_oeb[23] = 1'b1 ;   
+    assign io_oeb[22] = 1'b1 ;   
+    assign io_oeb[21] = 1'b1 ;   
+    assign io_oeb[20] = 1'b1 ;   
+    assign io_oeb[19] = 1'b1 ;   
+    assign io_oeb[18] = 1'b1 ;   
+    assign io_oeb[17] = 1'b1 ;   
+    // OUT : dac_out_v
+    assign io_oeb[10] = 1'b0 ;    
+    // IN : dac_inp1 
     assign io_oeb[9] =  1'b1 ;
+    // IN : INN
     assign io_oeb[8] =  1'b1 ;
+    // IN : INP
     assign io_oeb[7] =  1'b1 ;
 
     adc adc(
