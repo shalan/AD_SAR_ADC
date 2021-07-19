@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1626450099
+timestamp 1626641363
 << checkpaint >>
 rect -1298 -1308 1850 1852
 << nwell >>
@@ -273,19 +273,19 @@ rect 0 -48 552 -17
 << labels >>
 flabel metal1 s 30 527 64 561 0 FreeSans 200 0 0 0 VPWR
 flabel metal1 s 30 -17 64 17 0 FreeSans 200 0 0 0 VGND
+flabel nwell s 30 527 64 561 0 FreeSans 200 0 0 0 VPB
+flabel pwell s 30 -17 64 17 0 FreeSans 200 0 0 0 VNB
+rlabel comment s 0 0 0 0 4 buf_4
 flabel locali s 306 221 340 255 0 FreeSans 200 0 0 0 X
 flabel locali s 306 289 340 323 0 FreeSans 200 0 0 0 X
 flabel locali s 306 153 340 187 0 FreeSans 200 0 0 0 X
 flabel locali s 30 527 64 561 0 FreeSans 200 0 0 0 VPWR
 flabel locali s 30 -17 64 17 0 FreeSans 200 0 0 0 VGND
 flabel locali s 30 221 64 255 0 FreeSans 200 0 0 0 A
-flabel nwell s 30 527 64 561 0 FreeSans 200 0 0 0 VPB
-flabel pwell s 30 -17 64 17 0 FreeSans 200 0 0 0 VNB
-rlabel comment s 0 0 0 0 4 buf_4
 << properties >>
 string FIXED_BBOX 0 0 552 544
 string GDS_FILE gds/adc_wrapper.gds
-string GDS_END 515900
-string GDS_START 510540
+string GDS_END 190194
+string GDS_START 184834
 string path 0.000 13.600 13.800 13.600 
 << end >>

@@ -6,13 +6,13 @@ MACRO ACMP
   CLASS BLOCK ;
   FOREIGN ACMP ;
   ORIGIN 0.000 0.000 ;
-  SIZE 60.920 BY 48.720 ;
+  SIZE 60.920 BY 100.400 ;
   PIN INN
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 46.680 24.770 50.680 25.890 ;
+        RECT 46.680 49.610 50.680 50.730 ;
     END
   END INN
   PIN INP
@@ -20,7 +20,7 @@ MACRO ACMP
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 46.680 11.430 50.680 12.550 ;
+        RECT 46.680 19.710 50.680 20.830 ;
     END
   END INP
   PIN Q
@@ -28,7 +28,7 @@ MACRO ACMP
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 46.680 38.110 50.680 39.230 ;
+        RECT 46.680 79.510 50.680 80.630 ;
     END
   END Q
   PIN VDD
@@ -36,7 +36,7 @@ MACRO ACMP
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 10.680 38.110 14.680 39.230 ;
+        RECT 10.680 79.510 14.680 80.630 ;
     END
   END VDD
   PIN VSS
@@ -44,7 +44,7 @@ MACRO ACMP
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 10.680 24.770 14.680 25.890 ;
+        RECT 10.680 49.610 14.680 50.730 ;
     END
   END VSS
   PIN clk
@@ -52,7 +52,7 @@ MACRO ACMP
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 10.680 11.430 14.680 12.550 ;
+        RECT 10.680 19.710 14.680 20.830 ;
     END
   END clk
   PIN vccd2
@@ -60,7 +60,7 @@ MACRO ACMP
     USE POWER ;
     PORT
       LAYER met3 ;
-        RECT 5.700 39.020 55.220 43.020 ;
+        RECT 5.700 90.700 55.220 94.700 ;
     END
   END vccd2
   PIN vccd2
@@ -76,7 +76,7 @@ MACRO ACMP
     USE POWER ;
     PORT
       LAYER met4 ;
-        RECT 39.285 0.000 41.385 48.720 ;
+        RECT 39.285 0.000 41.385 100.400 ;
     END
   END vccd2
   PIN vccd2
@@ -84,7 +84,7 @@ MACRO ACMP
     USE POWER ;
     PORT
       LAYER met4 ;
-        RECT 29.630 0.000 31.730 48.720 ;
+        RECT 29.630 0.000 31.730 100.400 ;
     END
   END vccd2
   PIN vccd2
@@ -92,7 +92,7 @@ MACRO ACMP
     USE POWER ;
     PORT
       LAYER met4 ;
-        RECT 19.975 0.000 22.075 48.720 ;
+        RECT 19.975 0.000 22.075 100.400 ;
     END
   END vccd2
   PIN vccd2
@@ -100,7 +100,7 @@ MACRO ACMP
     USE POWER ;
     PORT
       LAYER met4 ;
-        RECT 51.220 5.700 55.220 43.020 ;
+        RECT 51.220 5.700 55.220 94.700 ;
     END
   END vccd2
   PIN vccd2
@@ -108,7 +108,7 @@ MACRO ACMP
     USE POWER ;
     PORT
       LAYER met4 ;
-        RECT 5.700 5.700 9.700 43.020 ;
+        RECT 5.700 5.700 9.700 94.700 ;
     END
   END vccd2
   PIN vssd2
@@ -116,7 +116,7 @@ MACRO ACMP
     USE GROUND ;
     PORT
       LAYER met3 ;
-        RECT 0.000 44.720 60.920 48.720 ;
+        RECT 0.000 96.400 60.920 100.400 ;
     END
   END vssd2
   PIN vssd2
@@ -132,7 +132,7 @@ MACRO ACMP
     USE GROUND ;
     PORT
       LAYER met4 ;
-        RECT 56.920 0.000 60.920 48.720 ;
+        RECT 56.920 0.000 60.920 100.400 ;
     END
   END vssd2
   PIN vssd2
@@ -140,7 +140,7 @@ MACRO ACMP
     USE GROUND ;
     PORT
       LAYER met4 ;
-        RECT 34.455 0.000 36.555 48.720 ;
+        RECT 34.455 0.000 36.555 100.400 ;
     END
   END vssd2
   PIN vssd2
@@ -148,7 +148,7 @@ MACRO ACMP
     USE GROUND ;
     PORT
       LAYER met4 ;
-        RECT 24.805 0.000 26.905 48.720 ;
+        RECT 24.805 0.000 26.905 100.400 ;
     END
   END vssd2
   PIN vssd2
@@ -156,26 +156,28 @@ MACRO ACMP
     USE GROUND ;
     PORT
       LAYER met4 ;
-        RECT 0.000 0.000 4.000 48.720 ;
+        RECT 0.000 0.000 4.000 100.400 ;
     END
   END vssd2
   OBS
       LAYER li1 ;
-        RECT 16.200 16.115 44.720 32.605 ;
+        RECT 16.200 16.115 44.720 84.285 ;
       LAYER met1 ;
-        RECT 15.810 15.960 46.030 32.760 ;
+        RECT 15.810 15.960 46.030 84.440 ;
       LAYER met2 ;
-        RECT 14.960 37.830 46.400 38.740 ;
-        RECT 14.680 26.170 46.680 37.830 ;
-        RECT 14.960 24.490 46.400 26.170 ;
-        RECT 14.680 12.830 46.680 24.490 ;
-        RECT 14.960 11.920 46.400 12.830 ;
+        RECT 14.680 80.910 46.680 84.440 ;
+        RECT 14.960 79.230 46.400 80.910 ;
+        RECT 14.680 51.010 46.680 79.230 ;
+        RECT 14.960 49.330 46.400 51.010 ;
+        RECT 14.680 21.110 46.680 49.330 ;
+        RECT 14.960 19.430 46.400 21.110 ;
+        RECT 14.680 15.960 46.680 19.430 ;
       LAYER met3 ;
-        RECT 19.975 16.035 41.380 32.685 ;
+        RECT 19.975 16.035 41.380 84.365 ;
       LAYER met4 ;
-        RECT 27.305 0.000 29.230 48.720 ;
-        RECT 32.130 0.000 34.055 48.720 ;
-        RECT 36.955 0.000 38.885 48.720 ;
+        RECT 27.305 0.000 29.230 100.400 ;
+        RECT 32.130 0.000 34.055 100.400 ;
+        RECT 36.955 0.000 38.885 100.400 ;
   END
 END ACMP
 END LIBRARY

@@ -39,7 +39,7 @@ SIM?=RTL
 
 .SUFFIXES:
 
-PATTERN = adc
+PATTERN = acmp
 
 all:  ${PATTERN:=.vcd}
 
@@ -47,12 +47,12 @@ hex:  ${PATTERN:=.hex}
 
 %.vvp: %_tb.v %.hex
 ifeq ($(SIM),RTL)
-	iverilog -DFUNCTIONAL -DSIM -I $(PDK_PATH) \
+	iverilog -Ttyp -DFUNCTIONAL -DSIM -I $(PDK_PATH) \
 	-I $(CARAVEL_BEHAVIOURAL_MODELS) -I $(CARAVEL_RTL_PATH) \
 	-I $(UPRJ_BEHAVIOURAL_MODELS)    -I $(UPRJ_RTL_PATH) \
 	$< -o $@ 
 else  
-	iverilog -DFUNCTIONAL -DSIM -DGL -I $(PDK_PATH) \
+	iverilog -Ttyp -DFUNCTIONAL -DSIM -DGL -I $(PDK_PATH) \
 	-I $(CARAVEL_BEHAVIOURAL_MODELS) -I $(CARAVEL_RTL_PATH) -I $(CARAVEL_VERILOG_PATH) \
 	-I $(UPRJ_BEHAVIOURAL_MODELS) -I$(UPRJ_RTL_PATH)   -I $(UPRJ_VERILOG_PATH) \
 	$< -o $@ 

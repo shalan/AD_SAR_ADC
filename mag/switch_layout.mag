@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1626450099
+timestamp 1626641363
 << checkpaint >>
 rect -1220 -1106 3720 2440
 << nwell >>
@@ -235,11 +235,11 @@ rect 847 633 960 667
 rect 790 622 960 633
 rect 512 182 612 324
 use INV  INV_0
-timestamp 1626450099
+timestamp 1626641363
 transform 1 0 224 0 1 622
 box -88 -456 304 550
 use INV  INV_1
-timestamp 1626450099
+timestamp 1626641363
 transform 1 0 602 0 1 622
 box -88 -456 304 550
 << labels >>

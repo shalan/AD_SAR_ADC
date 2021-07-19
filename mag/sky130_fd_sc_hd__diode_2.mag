@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1626450099
+timestamp 1626641363
 << checkpaint >>
 rect -1298 -1308 1482 1852
 << nwell >>
@@ -59,6 +59,9 @@ rect 0 -48 184 -17
 << labels >>
 flabel metal1 s 29 -17 63 17 0 FreeSans 200 0 0 0 VGND
 flabel metal1 s 29 527 63 561 0 FreeSans 200 0 0 0 VPWR
+flabel nwell s 29 527 63 561 0 FreeSans 200 0 0 0 VPB
+flabel pwell s 29 -17 63 17 0 FreeSans 200 0 0 0 VNB
+rlabel comment s 0 0 0 0 4 diode_2
 flabel locali s 121 85 155 119 0 FreeSans 200 0 0 0 DIODE
 flabel locali s 121 357 155 391 0 FreeSans 200 0 0 0 DIODE
 flabel locali s 29 357 63 391 0 FreeSans 200 0 0 0 DIODE
@@ -71,13 +74,10 @@ flabel locali s 121 221 155 255 0 FreeSans 200 0 0 0 DIODE
 flabel locali s 121 153 155 187 0 FreeSans 200 0 0 0 DIODE
 flabel locali s 29 153 63 187 0 FreeSans 200 0 0 0 DIODE
 flabel locali s 29 85 63 119 0 FreeSans 200 0 0 0 DIODE
-flabel nwell s 29 527 63 561 0 FreeSans 200 0 0 0 VPB
-flabel pwell s 29 -17 63 17 0 FreeSans 200 0 0 0 VNB
-rlabel comment s 0 0 0 0 4 diode_2
 << properties >>
 string FIXED_BBOX 0 0 184 544
 string GDS_FILE gds/adc_wrapper.gds
-string GDS_END 113146
-string GDS_START 109692
-string path 0.000 2.720 0.920 2.720 
+string GDS_END 172340
+string GDS_START 168886
+string path 0.000 0.000 4.600 0.000 
 << end >>

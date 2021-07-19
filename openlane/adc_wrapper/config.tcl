@@ -57,8 +57,8 @@ set ::env(FP_PDN_CHECK_NODES) 0
 set ::env(FP_PDN_VPITCH) "45"
 set ::env(FP_PDN_VWIDTH) "3.5"
 
-set ::env(FP_PDN_HPITCH) "45"
-set ::env(FP_PDN_HWIDTH) "3.5"
+set ::env(FP_PDN_HPITCH) "40"
+set ::env(FP_PDN_HWIDTH) "6.5"
 
 set ::env(PL_RESIZER_DESIGN_OPTIMIZATIONS) 1
 set ::env(PL_RESIZER_TIMING_OPTIMIZATIONS) 1
@@ -77,14 +77,17 @@ set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro.cfg
 ### Black-box verilog and views
 set ::env(VERILOG_FILES_BLACKBOX) "	
 	$script_dir/../../verilog/rtl/DAC_8BIT.v \
+	$script_dir/../../verilog/rtl/ACMP_HVL.v \
     $script_dir/../../verilog/rtl/ACMP.v"
 
 set ::env(EXTRA_LEFS) "\
 	$script_dir/../../lef/DAC_8BIT.lef \ 
+	$script_dir/../../lef/ACMP_HVL.lef \
 	$script_dir/../../lef/ACMP.lef"
 
 set ::env(EXTRA_GDS_FILES) "\
 	$script_dir/../../gds/DAC_8BIT.gds \ 
+	$script_dir/../../gds/ACMP_HVL.gds \
 	$script_dir/../../gds/ACMP.gds"
 
 set ::env(VDD_NETS) [list {vccd1} {vccd2}]

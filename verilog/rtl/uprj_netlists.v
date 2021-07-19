@@ -22,6 +22,8 @@
 
 `include "libs.ref/sky130_fd_sc_hd/verilog/primitives.v"
 `include "libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v"
+`include "libs.ref/sky130_fd_sc_hvl/verilog/primitives.v"
+`include "libs.ref/sky130_fd_sc_hvl/verilog/sky130_fd_sc_hvl.v"
 
 `define ACMP_FUNCTIONAL
 
@@ -29,11 +31,15 @@
     // Assume default net type to be wire because GL netlists don't have the wire definitions
     `default_nettype wire
     `include "gl/user_project_wrapper.v"
-    `include "gl/ACMP.v"
+    `include "rtl/ACMP.v"
+    `include "rtl/ACMP_HVL.v"
+    `include "rtl/DAC_8BIT.v"
     `include "gl/adc_wrapper.v"
 `else
     `include "ACMP.v"
+    `include "ACMP_HVL.v"
     `include "SAR.v"
+    `include "DAC_8BIT.v"
     `include "adc.v"
     `include "adc_wrapper.v"
     `include "user_project_wrapper.v"

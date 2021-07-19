@@ -1,0 +1,53 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1626641363
+<< checkpaint >>
+rect -1326 -1303 1422 2157
+<< nwell >>
+rect -66 377 162 897
+<< pwell >>
+rect -26 -43 122 43
+<< mvpsubdiff >>
+rect 0 -17 31 17
+rect 65 -17 96 17
+<< mvnsubdiff >>
+rect 0 797 31 831
+rect 65 797 96 831
+<< mvpsubdiffcont >>
+rect 31 -17 65 17
+<< mvnsubdiffcont >>
+rect 31 797 65 831
+<< locali >>
+rect 0 797 31 831
+rect 65 797 96 831
+rect 0 -17 31 17
+rect 65 -17 96 17
+<< viali >>
+rect 31 797 65 831
+rect 31 -17 65 17
+<< metal1 >>
+rect 0 831 96 837
+rect 0 797 31 831
+rect 65 797 96 831
+rect 0 791 96 797
+rect 0 689 96 763
+rect 0 51 96 125
+rect 0 17 96 23
+rect 0 -17 31 17
+rect 65 -17 96 17
+rect 0 -23 96 -17
+<< labels >>
+flabel metal1 s 0 0 96 23 0 FreeSans 340 0 0 0 VNB
+flabel metal1 s 48 11 48 11 0 FreeSans 340 0 0 0 VNB
+flabel metal1 s 0 689 96 763 0 FreeSans 340 0 0 0 VPWR
+flabel metal1 s 0 791 96 814 0 FreeSans 340 0 0 0 VPB
+flabel metal1 s 48 802 48 802 0 FreeSans 340 0 0 0 VPB
+flabel metal1 s 0 51 96 125 0 FreeSans 340 0 0 0 VGND
+rlabel comment s 0 0 0 0 4 fill_1
+<< properties >>
+string FIXED_BBOX 0 0 96 814
+string GDS_FILE gds/adc_wrapper.gds
+string GDS_END 112202
+string GDS_START 109822
+<< end >>

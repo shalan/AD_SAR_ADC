@@ -1,0 +1,72 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1626693480
+<< nwell >>
+rect 1086 15843 14850 16363
+rect 1086 14215 14850 15089
+rect 1086 12587 14850 13461
+rect 1086 10959 14850 11833
+rect 1086 9331 14850 10205
+rect 1086 7703 14850 8577
+rect 1086 6075 14850 6949
+rect 1086 4447 14850 5321
+rect 1086 3173 14850 3693
+<< obsli1 >>
+rect 1152 3239 14784 16297
+<< obsm1 >>
+rect 1152 3205 14784 16331
+<< metal2 >>
+rect 7988 0 8044 800
+<< obsm2 >>
+rect 3286 856 14092 16687
+rect 3286 800 7932 856
+rect 8100 800 14092 856
+<< metal3 >>
+rect 15200 16590 16000 16710
+rect 15200 9930 16000 10050
+rect 15200 3270 16000 3390
+<< obsm3 >>
+rect 3274 16510 15120 16683
+rect 3274 10130 15200 16510
+rect 3274 9850 15120 10130
+rect 3274 3470 15200 9850
+rect 3274 3223 15120 3470
+<< metal4 >>
+rect 3275 3205 3595 16331
+rect 5557 3205 5877 16331
+rect 7840 3205 8160 16331
+rect 10123 3205 10443 16331
+rect 12405 3205 12725 16331
+<< obsm4 >>
+rect 3675 3205 5477 16331
+rect 5957 3205 7760 16331
+rect 8240 3205 10043 16331
+<< labels >>
+rlabel metal3 s 15200 9930 16000 10050 6 INN
+port 1 nsew signal input
+rlabel metal3 s 15200 3270 16000 3390 6 INP
+port 2 nsew signal input
+rlabel metal3 s 15200 16590 16000 16710 6 Q
+port 3 nsew signal output
+rlabel metal2 s 7988 0 8044 800 6 clk
+port 4 nsew signal input
+rlabel metal4 s 12405 3205 12725 16331 6 vccd2
+port 5 nsew power bidirectional
+rlabel metal4 s 7840 3205 8160 16331 6 vccd2
+port 6 nsew power bidirectional
+rlabel metal4 s 3275 3205 3595 16331 6 vccd2
+port 7 nsew power bidirectional
+rlabel metal4 s 10123 3205 10443 16331 6 vssd2
+port 8 nsew ground bidirectional
+rlabel metal4 s 5557 3205 5877 16331 6 vssd2
+port 9 nsew ground bidirectional
+<< properties >>
+string LEFclass BLOCK
+string FIXED_BBOX 0 0 16000 20000
+string LEFview TRUE
+string GDS_FILE /project/openlane/ACMP_HVL/runs/ACMP_HVL/results/magic/ACMP_HVL.gds
+string GDS_END 145368
+string GDS_START 55762
+<< end >>
+

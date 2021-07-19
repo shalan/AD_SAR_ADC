@@ -1,0 +1,114 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO ACMP_HVL
+  CLASS BLOCK ;
+  FOREIGN ACMP_HVL ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 80.000 BY 100.000 ;
+  PIN INN
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 76.000 49.650 80.000 50.250 ;
+    END
+  END INN
+  PIN INP
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 76.000 16.350 80.000 16.950 ;
+    END
+  END INP
+  PIN Q
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 76.000 82.950 80.000 83.550 ;
+    END
+  END Q
+  PIN clk
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 39.940 0.000 40.220 4.000 ;
+    END
+  END clk
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 62.025 16.025 63.625 81.655 ;
+    END
+  END vccd2
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 39.200 16.025 40.800 81.655 ;
+    END
+  END vccd2
+  PIN vccd2
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 16.375 16.025 17.975 81.655 ;
+    END
+  END vccd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 50.615 16.025 52.215 81.655 ;
+    END
+  END vssd2
+  PIN vssd2
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 27.785 16.025 29.385 81.655 ;
+    END
+  END vssd2
+  OBS
+      LAYER nwell ;
+        RECT 5.430 79.215 74.250 81.815 ;
+        RECT 5.430 71.075 74.250 75.445 ;
+        RECT 5.430 62.935 74.250 67.305 ;
+        RECT 5.430 54.795 74.250 59.165 ;
+        RECT 5.430 46.655 74.250 51.025 ;
+        RECT 5.430 38.515 74.250 42.885 ;
+        RECT 5.430 30.375 74.250 34.745 ;
+        RECT 5.430 22.235 74.250 26.605 ;
+        RECT 5.430 15.865 74.250 18.465 ;
+      LAYER li1 ;
+        RECT 5.760 16.195 73.920 81.485 ;
+      LAYER met1 ;
+        RECT 5.760 16.025 73.920 81.655 ;
+      LAYER met2 ;
+        RECT 16.430 4.280 70.460 83.435 ;
+        RECT 16.430 4.000 39.660 4.280 ;
+        RECT 40.500 4.000 70.460 4.280 ;
+      LAYER met3 ;
+        RECT 16.370 82.550 75.600 83.415 ;
+        RECT 16.370 50.650 76.000 82.550 ;
+        RECT 16.370 49.250 75.600 50.650 ;
+        RECT 16.370 17.350 76.000 49.250 ;
+        RECT 16.370 16.115 75.600 17.350 ;
+      LAYER met4 ;
+        RECT 18.375 16.025 27.385 81.655 ;
+        RECT 29.785 16.025 38.800 81.655 ;
+        RECT 41.200 16.025 50.215 81.655 ;
+  END
+END ACMP_HVL
+END LIBRARY
+

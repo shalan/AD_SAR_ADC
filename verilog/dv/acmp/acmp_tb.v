@@ -21,9 +21,12 @@
 `include "caravel_netlists.v"
 `include "spiflash.v"
 
-`define SOC_SETUP_TIME 2000
+`define SOC_SETUP_TIME 300_000
 
-module adc_tb;
+module acmp_tb;
+
+  	localparam SIZE = 8;
+
 	reg clock;
 	reg RSTB;
 	reg CSB;
@@ -37,17 +40,43 @@ module adc_tb;
     
     // ADC Registers 
     reg start ;
-    reg INP, INN ;
+    wire real INP, INN ;
     wire DONE ;
     wire Q_OUT ;
-    wire [7:0] DATA ;
+    wire [7:0] DATA_OUT ;
+	wire [7:0] DAC_INP ;
+	wire DAC_OUT ;
+	wire cmp_sel ;
+	wire cmp ;
+	wire DAC_INP1 ;
 
     assign mprj_io[28] = start ;
     assign mprj_io[7]  = INP ;
     assign mprj_io[8]  = INN ; 
+	assign mprj_io[26] = cmp_sel ;
+	assign mprj_io[25] = cmp ;
+	assign mprj_io[24:17] = DAC_INP ;
+	assign mprj_io[9] = DAC_INP1 ;
+
+    assign DATA_OUT = mprj_io[37:30] ;
     assign DONE  = mprj_io[29] ;
-    assign Q_OUT = mprj_io[9] ;
-    assign DATA  = mprj_io[37:30] ;
+    assign Q_OUT = mprj_io[27] ;
+	assign DAC_OUT = mprj_io[10] ;
+
+	assign DAC_INP = 8'b01010101 ;
+	assign DAC_INP1 = 1'b1 ;
+	assign INP = Ain ;
+	assign INN = Vdac ;
+
+	// SAR 
+	reg Ain, Vdac;
+	wire [7:0] out; 
+	wire [7:0] outn; 
+
+	assign out = DATA_OUT ;
+	assign cmp_sel = 1'b0 ;
+  	assign cmp = (Ain > Vdac);
+	assign outn = ~out ;
 
 	// External clock is used by default.  Make this artificially fast for the
 	// simulation.  Normally this would be a slow clock and the digital PLL
@@ -57,11 +86,15 @@ module adc_tb;
 
 	initial begin
 		clock = 0;
+		start = 0;
+		// analog input
+	    Ain = 0;
+		Vdac = 0;
 	end
 
 	initial begin
-		$dumpfile("adc.vcd");
-		$dumpvars(0, adc_tb);
+		$dumpfile("acmp.vcd");
+		$dumpvars(0, acmp_tb);
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
 		repeat (25) begin
@@ -70,25 +103,53 @@ module adc_tb;
 		end
 		$display("%c[1;31m",27);
 		`ifdef GL
-			$display ("Monitor: Timeout, Test ADC (GL) Failed");
+			$display ("Monitor: Timeout, Test ACMP (GL) Failed");
 		`else
-			$display ("Monitor: Timeout, Test ADC (RTL) Failed");
+			$display ("Monitor: Timeout, Test ACMP (RTL) Failed");
 		`endif
 		$display("%c[0m",27);
 		$finish;
 	end
 
+	integer i;
+
 	initial begin
         #(`SOC_SETUP_TIME) ;
-        // set start to one         
-        start = 1'b1 ;
-        INP = 1'b1 ;
-        INN = 1'b1 ;
-        wait(DONE == 1'b1);
+        // wait till it is out of reset   
+		wait (RSTB == 1'b1) ;     
+		# 300 ;		
+		Ain = 0;
+		Vdac = 0;
+		#50 ;
+		if (cmp !== Q_OUT)  begin
+			$display("Monitor: Test ACMP Failed");
+			$finish;
+		end
+		Ain = 1;
+		Vdac = 0;
+		#50 ;
+		if (cmp !== Q_OUT)  begin
+			$display("Monitor: Test ACMP Failed");
+			$finish;
+		end
+		Ain = 0;
+		Vdac = 1;
+		#50 ;
+		if (cmp !== Q_OUT)  begin
+			$display("Monitor: Test ACMP  Failed");
+			$finish;
+		end
+		Ain = 1;
+		Vdac = 1;
+		#50 ;
+		if (cmp !== Q_OUT)  begin
+			$display("Monitor: Test ACMP Failed");
+			$finish;
+		end
 		`ifdef GL
-	    	$display("Monitor: Test 1 Mega-Project IO (GL) Passed");
+	    	$display("Monitor: Test ACMP (GL) Passed");
 		`else
-		    $display("Monitor: Test 1 Mega-Project IO (RTL) Passed");
+		    $display("Monitor: Test ACMP (RTL) Passed");
 		`endif
 	    $finish;
 	end
@@ -158,7 +219,7 @@ module adc_tb;
 	);
 
 	spiflash #(
-		.FILENAME("adc.hex")
+		.FILENAME("acmp.hex")
 	) spiflash (
 		.csb(flash_csb),
 		.clk(flash_clk),

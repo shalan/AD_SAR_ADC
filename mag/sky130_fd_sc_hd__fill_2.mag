@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1626450099
+timestamp 1626641363
 << checkpaint >>
 rect -1298 -1308 1482 1852
 << nwell >>
@@ -40,7 +40,7 @@ rlabel comment s 0 0 0 0 4 fill_2
 << properties >>
 string FIXED_BBOX 0 0 184 544
 string GDS_FILE gds/adc_wrapper.gds
-string GDS_END 106482
-string GDS_START 105102
-string path 0.000 0.000 0.920 0.000 
+string GDS_END 157990
+string GDS_START 156610
+string path 0.000 13.600 4.600 13.600 
 << end >>

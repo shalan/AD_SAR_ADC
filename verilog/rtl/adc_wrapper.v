@@ -31,6 +31,8 @@
 
 module adc_wrapper (
 `ifdef USE_POWER_PINS
+    input wire vdda1,	// User area 1 3.3V supply
+    input wire vssa1,	// User area 1 analog ground
     input wire vccd1,	// User area 1 1.8V supply
     input wire vssd1,	// User area 1 digital ground
     input wire vccd2,	// User area 2 1.8V supply (analog)
@@ -101,35 +103,46 @@ module adc_wrapper (
         ----------------------------------
     */
     
+    wire one, zero ; 
+
+    assign one = ~wb_rst_i ;
+    assign zero = wb_rst_i ;
+
     // OUT: data[0:7] 
-    assign io_oeb[37:30] = 8'b00000000 ; 
+    assign io_oeb[37:30] = {8{zero}} ; 
     // OUT: done
-    assign io_oeb[29] = 1'b0 ;
+    assign io_oeb[29] = zero ;
     // IN : start
-    assign io_oeb[28] = 1'b1 ;
+    assign io_oeb[28] = one ;
     // OUT: Q
-    assign io_oeb[27] = 1'b0 ;
+    assign io_oeb[27] = zero ;
     // IN : cmp_sel
-    assign io_oeb[26] = 1'b1 ;
+    assign io_oeb[26] =  one ;
     // IN : cmp
-    assign io_oeb[25] = 1'b1 ;
+    assign io_oeb[25] =  one ;
     // IN : d0-d7
-    assign io_oeb[24] = 1'b1 ;   
-    assign io_oeb[23] = 1'b1 ;   
-    assign io_oeb[22] = 1'b1 ;   
-    assign io_oeb[21] = 1'b1 ;   
-    assign io_oeb[20] = 1'b1 ;   
-    assign io_oeb[19] = 1'b1 ;   
-    assign io_oeb[18] = 1'b1 ;   
-    assign io_oeb[17] = 1'b1 ;   
+    assign io_oeb[24] =  one ;   
+    assign io_oeb[23] =  one ;   
+    assign io_oeb[22] =  one ;   
+    assign io_oeb[21] =  one ;   
+    assign io_oeb[20] =  one ;   
+    assign io_oeb[19] =  one ;   
+    assign io_oeb[18] =  one ;   
+    assign io_oeb[17] =  one ;   
+    // OUT : sQ
+    assign io_oeb[16] =  zero ;   
+    // IN : sINN
+    assign io_oeb[12] = one ;    
+    // IN : sINP
+    assign io_oeb[11] = one ;    
     // OUT : dac_out_v
-    assign io_oeb[10] = 1'b0 ;    
+    assign io_oeb[10] = zero ;    
     // IN : dac_inp1 
-    assign io_oeb[9] =  1'b1 ;
+    assign io_oeb[9] = one  ;
     // IN : INN
-    assign io_oeb[8] =  1'b1 ;
+    assign io_oeb[8] =  one ;
     // IN : INP
-    assign io_oeb[7] =  1'b1 ;
+    assign io_oeb[7] =  one ;
 
     adc adc(
     `ifdef USE_POWER_PINS 
@@ -139,7 +152,7 @@ module adc_wrapper (
         .vssd2       (vssd2),
     `endif
         .clk        (wb_clk_i),         // The clock (digital)
-        .rstn       (wb_rst_i),         // Active low reset (digital)
+        .rst        (wb_rst_i),         // Active high reset (digital)
         .start      (io_in[28]),        // Conversion start (digital)
         .done       (io_out[29]),       // Conversion is done (digital)
         .data       (io_out[37:30]),    // SAR o/p (digital)
@@ -149,6 +162,12 @@ module adc_wrapper (
         .INP        (analog_io[0]),     // mprj_io[7]  (Analog)
         .INN        (analog_io[1]),     // mprj_io[8]  (Analog)
         .Q          (io_out[27]),       // mprj_io[27] (Digital)
+    
+        // Secondary ACMP (HVL) Ports 
+        .sINP       (analog_io[4]) ,
+        .sINN       (analog_io[5]) ,
+        .sQ         (io_out[26]),
+
         // DAC Ports    
         .d0         (io_in[24]),        // DAC input data (digital)
         .d1         (io_in[23]),

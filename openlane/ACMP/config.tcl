@@ -36,7 +36,7 @@ set ::env(CLOCK_NET) "clk"
 set ::env(CLOCK_PERIOD) "10"
 
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 40 40"
+set ::env(DIE_AREA) "0 0 40 90"
 
 set ::env(PL_TARGET_DENSITY) "0.15"
 set ::env(GLB_RT_MAXLAYER) 5
@@ -62,7 +62,7 @@ set ::env(FP_PDN_CORE_RING_HOFFSET) "8.5"
 set ::env(FP_PDN_CORE_RING_VWIDTH) "4"
 set ::env(FP_PDN_CORE_RING_HWIDTH) "4"
 
-set ::env(PL_RESIZER_DESIGN_OPTIMIZATIONS) 1
+set ::env(PL_RESIZER_DESIGN_OPTIMIZATIONS) 0
 set ::env(PL_RESIZER_TIMING_OPTIMIZATIONS) 0
 
 set ::env(DIODE_INSERTION_STRATEGY) 4

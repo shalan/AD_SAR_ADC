@@ -18,6 +18,7 @@ module DAC_8BIT (
     output wire out_v
 );
 
-assign d0 = 0;
+// Dummy behavirol model to verify the DAC connection with the user_project_wrapper
+assign out_v = d0 | d1 | d2 | d3 | d4 | d5 | d6 | d7 ;
 
 endmodule

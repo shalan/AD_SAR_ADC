@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1626450099
+timestamp 1626641363
 << checkpaint >>
 rect -1330 -13330 17632 13032
 << locali >>
@@ -244,19 +244,19 @@ rect 14698 1562 14728 1626
 rect 14792 1562 14814 1626
 rect 14698 1540 14814 1562
 use switch_layout  switch_layout_0
-timestamp 1626450099
+timestamp 1626641363
 transform 1 0 13800 0 1 336
 box 40 154 2460 1180
 use res250_layout  res250_layout_0
-timestamp 1626450099
+timestamp 1626641363
 transform 1 0 -230 0 1 -62
 box 202 -342 510 -90
 use 4bitdac_layout  4bitdac_layout_0
-timestamp 1626450099
+timestamp 1626641363
 transform 1 0 6 0 1 6048
 box -6 -6048 13514 5724
 use 4bitdac_layout  4bitdac_layout_1
-timestamp 1626450099
+timestamp 1626641363
 transform 1 0 -64 0 1 -5936
 box -6 -6048 13514 5724
 << labels >>

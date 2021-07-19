@@ -3,6 +3,10 @@
 */
 
 module ACMP_HVL(
+`ifdef USE_POWER_PINS
+    input wire vccd2,	
+    input wire vssd2,	
+`endif
     input   wire clk,
     input   wire INP,
     input   wire INN,

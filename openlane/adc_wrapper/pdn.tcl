@@ -97,6 +97,16 @@ if { $::env(VDD_NET) == "vccd1" } {
         }
         connect {{met4_PIN_ver met5}}
     }
+} elseif { $::env(VDD_NET) == "vdda1" } {
+    set macro {
+        orient {R0 R180 MX MY R90 R270 MXR90 MYR90}
+        power_pins "vdda1"
+        ground_pins "vssa1"
+        blockages "li1 met1 met2 met3 met4"
+        straps {
+        }
+        connect {{met4_PIN_ver met5}}
+    }
 } else {
     set macro {
         orient {R0 R180 MX MY R90 R270 MXR90 MYR90}

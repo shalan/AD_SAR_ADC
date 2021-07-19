@@ -6,7 +6,7 @@ module adc(
     input wire vssd2,	        // User area 2 ground      (analog)
 `endif
     input   wire        clk,        // The clock (digital)
-    input   wire        rst,       // Active low reset (digital)
+    input   wire        rst,        // Active high reset (digital)
     input   wire        start,      // Conversion start (digital)
     output  wire        done,       // Conversion is done (digital)
     output  wire [7:0]  data,       // SAR o/p (digital)
@@ -42,13 +42,16 @@ module adc(
     wire        sar_cmp = cmp_sel ? cmp : Q;
     
     ACMP_HVL SCOMP (
+    `ifdef USE_POWER_PINS
+        .vccd2(vccd2),
+        .vssd2(vssd2),
+    `endif
         .clk(clk),
         .INP(sINP),
         .INN(sINN),
         .Q(sQ)
     );
 
-    
     ACMP COMP (
     `ifdef USE_POWER_PINS
         .vccd2(vccd2),
